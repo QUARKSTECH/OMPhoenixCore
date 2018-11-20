@@ -1,0 +1,25 @@
+.form-control{
+    height: calc(2.25rem + 7px);
+}
+
+.btn, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    background-color: inherit;
+    color: aliceblue; 
+    border: .1rem solid #c5c5c5;
+}
+
+.btn:hover
+{
+background-image:none;
+background-color:#423e42;
+}
+.home-content h4{
+    font-family: "metropolis-medium", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.286;
+    letter-spacing: 0.2rem;
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 3rem;
+    position: relative;
+}

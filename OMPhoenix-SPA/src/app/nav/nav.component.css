@@ -1,0 +1,21 @@
+.bg-dark {
+    background-color: #060505!important;
+    height: 7%;
+}
+input[type="text"], input[type="password"] {
+    height: 5rem;
+    margin-top: 2em;
+}
+.logo img{
+    width: 200px !important;
+    height: 50px !important;
+}
+.btn-outline-success.disabled, .btn-outline-success:disabled {
+    /* color: #28a745; */
+    color: white;
+    background-color: inherit;
+    border: none;
+}
+.dropdown {
+    cursor: pointer;
+}

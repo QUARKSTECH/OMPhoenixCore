@@ -1,0 +1,121 @@
+<!-- ======= header part start ======= -->
+<header class="header-area">
+  <!-- top  header area -->
+  <div class="top-header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <!-- company slogan -->
+          <div class="slogan">
+            <p>Shape your dream with the help of expert builders</p>
+          </div>
+        </div>
+        <div class="col-md-7 text-right">
+          <!-- header contact -->
+          <div class="top-header-info">
+            <a href="mailto:sales@omphoenixtraders.com"
+              ><i class="fa fa-envelope"></i>sales@omphoenixtraders.com</a
+            >
+            <a><i class="fa fa-phone"></i>75430 97583</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- menu area -->
+  <div class="menu-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <!-- logo part -->
+          <div class="arina-logo">
+            <a href="index.html"><img src="../../assets/images/logo.png" alt=""/></a>
+          </div>
+          <div class="responsive-menu-wrap"></div>
+        </div>
+        <div class="col-md-9">
+          <!-- menu part -->
+          <nav class="main-menu">
+            <ul class="navigation">
+              <li><a href="index.html" class="menu-active">Home</a></li>
+              <li>
+                <a href="#">Company</a>
+                <ul class="drop-menu">
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="team.html">team</a></li>
+                  <li><a href="why.html">Why Us</a></li>
+                </ul>
+              </li>
+              <li><a href="services.html">Services</a></li>
+              <li>
+                <a href="#">Product</a>
+                <ul class="drop-menu">
+                  <li><a href="indofork.html">Indo Fork</a></li>
+                  <li><a href="mark.html">Mark</a></li>
+                  <li><a href="parker.html">Parker</a></li>
+                </ul>
+              </li>
+
+              <li><a href="contact.html">contact us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ======= header part end ======= -->
+
+<!--
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="logo">
+        <a href="#">
+            <img src="../../assets/logo.png" alt="Homepage">
+        </a>
+    </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+        <div *ngIf="loggedIn()" class="dropdown" dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>
+              Welcome {{authService.decodedToken?.unique_name | titlecase}}
+            </a>
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+              <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+            </div>
+          </div>
+
+        <form *ngIf="!loggedIn()"
+          #loginForm="ngForm"
+          class="form-inline my-2 my-lg-0"
+          (ngSubmit)="login()"
+        >
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            [(ngModel)]="model.username"
+          />
+          <input
+            class="form-control mr-sm-2"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            [(ngModel)]="model.password"
+          />
+          <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+-->
