@@ -15,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_service/alertify.service';
 import { FooterComponent } from './footer/footer.component';
-import { CompanyComponent } from './company/company.component';
 import { ServicesOfferComponent } from './servicesOffer/servicesOffer.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
@@ -32,7 +31,6 @@ import { appRoutes } from './routes';
       HomeComponent,
       RegisterComponent,
       FooterComponent,
-      CompanyComponent,
       ServicesOfferComponent,
       ProductComponent,
       ContactComponent,
