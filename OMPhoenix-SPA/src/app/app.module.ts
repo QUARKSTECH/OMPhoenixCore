@@ -5,6 +5,7 @@ import {FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { OwlModule } from 'ngx-owl-carousel';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -14,6 +15,11 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_service/alertify.service';
 import { FooterComponent } from './footer/footer.component';
+import { CompanyComponent } from './company/company.component';
+import { ServicesOfferComponent } from './servicesOffer/servicesOffer.component';
+import { ProductComponent } from './product/product.component';
+import { ContactComponent } from './contact/contact.component';
+import { appRoutes } from './routes';
 
 @NgModule({
    declarations: [
@@ -22,7 +28,11 @@ import { FooterComponent } from './footer/footer.component';
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      FooterComponent
+      FooterComponent,
+      CompanyComponent,
+      ServicesOfferComponent,
+      ProductComponent,
+      ContactComponent
    ],
    imports: [
       BrowserModule,
@@ -30,7 +40,8 @@ import { FooterComponent } from './footer/footer.component';
       FormsModule,
       BsDropdownModule.forRoot(),
       ModalModule.forRoot(),
-      OwlModule
+      OwlModule,
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,

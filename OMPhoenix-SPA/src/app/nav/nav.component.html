@@ -29,7 +29,7 @@
         <div class="col-md-3">
           <!-- logo part -->
           <div class="arina-logo">
-            <a href="index.html"><img src="../../assets/images/logo.png" alt=""/></a>
+            <a [routerLink]="['/home']" ><img src="../../assets/images/logo.png" alt=""/></a>
           </div>
           <div class="responsive-menu-wrap"></div>
         </div>
@@ -37,18 +37,20 @@
           <!-- menu part -->
           <nav class="main-menu">
             <ul class="navigation">
-              <li><a href="index.html" class="menu-active">Home</a></li>
+              <li><a [routerLink]="['/home']" routerLinkActive="menu-active">Home</a></li>
               <li>
-                <a href="#">Company</a>
+                <a [routerLink]="['/company']" routerLinkActive="menu-active" >Company</a>
                 <ul class="drop-menu">
+                  <li><a href="about.html">Add Machine</a></li>
+                  <li><a href="about.html">View Machines</a></li>
                   <li><a href="about.html">About Us</a></li>
                   <li><a href="team.html">team</a></li>
                   <li><a href="why.html">Why Us</a></li>
                 </ul>
               </li>
-              <li><a href="services.html">Services</a></li>
+              <li><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
               <li>
-                <a href="#">Product</a>
+                <a [routerLink]="['/product']" routerLinkActive="menu-active" >Product</a>
                 <ul class="drop-menu">
                   <li><a href="indofork.html">Indo Fork</a></li>
                   <li><a href="mark.html">Mark</a></li>
@@ -56,7 +58,7 @@
                 </ul>
               </li>
 
-              <li><a href="contact.html">contact us</a></li>
+              <li><a [routerLink]="['/contact']" routerLinkActive="menu-active" >contact us</a></li>
             </ul>
           </nav>
         </div>
