@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
-      ModalModule.forRoot()
+      ModalModule.forRoot(),
+      OwlModule
    ],
    providers: [
       AuthService,

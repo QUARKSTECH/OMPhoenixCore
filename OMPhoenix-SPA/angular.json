@@ -23,12 +23,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
             ],
             "scripts": [
               "node_modules/alertifyjs/build/alertify.min.js",
-              "src/assets/js/vendor/jquery-1.12.0.min.js",
-              "src/assets/js/owl.carousel.min.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/owl.carousel/dist/owl.carousel.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/jquery.slicknav.min.js",
+              "src/assets/js/jquery.barfiller.js",
+              "src/assets/js/jarallax.min.js",
+              "src/assets/js/jquery.sticky.js",
+              "src/assets/js/wmBox.js",
+              "src/assets/js/isotope.min.js",
+              "src/assets/js/jquery.waypoints.min.js",
+              "src/assets/js/counterup.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/jquery.scrollUp.min.js",
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {
