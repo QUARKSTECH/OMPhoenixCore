@@ -1,3 +1,62 @@
-<p>
-  product works!
-</p>
+<!-- ======= page title part srat ======= -->
+<section class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- page title -->
+        <div class="page-title">
+          <div class="title"><h2>{{productName}}</h2></div>
+          <ul class="breadcrumb">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li class="active">{{productName}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======= page title part end ======= -->
+
+<!-- ======= single service part start ======= -->
+<section class="single-service-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="single-service-details">
+          <!-- Gallery -->
+
+          <!-- single service contant -->
+          <app-indofork *ngIf="indoFork"></app-indofork>
+          <app-markair *ngIf="markAir"></app-markair>
+          <app-parker *ngIf="parker"></app-parker>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <!-- Widget categories -->
+        <aside class="blog-widgets service-list">
+            <h3 class="widget-title">Our Prducts</h3>
+            <ul>
+              <li><a (click)="serviceType('indoFork')">Indo Fork Compressor</a></li>
+              <li><a (click)="serviceType('markAir')">Mark air compressor</a></li>
+              <li><a (click)="serviceType('parker')">Parker Compressor</a></li>
+            </ul>
+          </aside>
+          <!-- Widget Category -->
+        <!-- Widget categories -->
+        <aside class="blog-widgets service-list">
+          <h3 class="widget-title">Quick Links</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="why.html">Why Us</a></li>
+          </ul>
+        </aside>
+        <!-- Widget Category -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======= single service part end ======= -->
+
+
+

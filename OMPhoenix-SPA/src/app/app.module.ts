@@ -19,6 +19,9 @@ import { CompanyComponent } from './company/company.component';
 import { ServicesOfferComponent } from './servicesOffer/servicesOffer.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
+import { IndoForkComponent } from './product/indoFork/indoFork.component';
+import { MarkAirComponent } from './product/markAir/markAir.component';
+import { ParkerComponent } from './product/parker/parker.component';
 import { appRoutes } from './routes';
 
 @NgModule({
@@ -32,7 +35,10 @@ import { appRoutes } from './routes';
       CompanyComponent,
       ServicesOfferComponent,
       ProductComponent,
-      ContactComponent
+      ContactComponent,
+      IndoForkComponent,
+      MarkAirComponent,
+      ParkerComponent
    ],
    imports: [
       BrowserModule,
