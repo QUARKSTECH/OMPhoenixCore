@@ -2,7 +2,7 @@
 <header class="header-area">
   <!-- top  header area -->
   <div class="top-header-area">
-    <div class="container">
+    <div class="customContainer">
       <div class="row">
         <div class="col-md-3">
           <!-- company slogan -->
@@ -10,16 +10,16 @@
             <p>Shape your dream with the help of expert builders</p>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <!-- header contact -->
           <div class="top-header-info">
             <a href="mailto:sales@omphoenixtraders.com"
               ><i class="fa fa-envelope"></i>sales@omphoenixtraders.com</a
-            >
+            ><br>
             <a><i class="fa fa-phone"></i>75430 97583</a>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <form *ngIf="!loggedIn()"
             #loginForm="ngForm"
             class="form-inline my-2 my-lg-0"
@@ -42,6 +42,7 @@
               [(ngModel)]="model.password"
             />
             <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+            <app-register *ngIf="!loggedIn()"></app-register>
           </form>
           <div *ngIf="loggedIn()" class="dropdown text-right" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>
@@ -53,8 +54,7 @@
                 <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
               </div>
             </div>
-            <app-register *ngIf="!loggedIn()"></app-register>
-        </div>
+         </div>
       </div>
     </div>
   </div>
