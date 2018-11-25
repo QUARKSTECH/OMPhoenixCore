@@ -6,6 +6,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
+import {DataTableModule} from 'angular-6-datatable';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -52,7 +53,8 @@ import { AuthGuard } from './_guards/auth.guard';
       BsDropdownModule.forRoot(),
       ModalModule.forRoot(),
       OwlModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      DataTableModule
    ],
    providers: [
       AuthService,

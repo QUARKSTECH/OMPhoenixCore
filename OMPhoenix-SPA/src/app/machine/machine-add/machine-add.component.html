@@ -20,16 +20,18 @@
                 <input
                   class="mr-3"
                   type="radio"
-                  value="male"
-                  name="ex"
+                  [value]="true"
+                  name="servicetype"
+                  [(ngModel)]="machine.serviceType"
                 />General Service
               </label>
               <label class="radio-inline ml-3">
                 <input
                   class="mr-3"
                   type="radio"
-                  value="female"
-                  name="ex1"
+                  [value]="false"
+                  name="servicetype"
+                  [(ngModel)]="machine.serviceType"
                 />Breakdown Service
               </label>
             </div>
@@ -52,6 +54,7 @@
                         class="form-control"
                         required=""
                         type="text"
+                        [(ngModel)]="machine.PartNumber"
                       />
                     </div>
                   </div>
@@ -63,6 +66,7 @@
                         class="form-control"
                         required=""
                         type="text"
+                        [(ngModel)]="machine.Model"
                       />
                     </div>
                   </div>
@@ -80,9 +84,35 @@
               <div class="row">
                   <div class="col-sm-12 col-md-12">
                     <div>
-                      <h4>Job 1</h4>
-                      <h4>Job 2</h4>
-                      <h4>Job 3</h4>
+                        <table class="table table-striped" [mfData]="jobCard" #mf="mfDataTable" [mfRowsOnPage]="2">
+                            <thead>
+                            <tr>
+                                <th style="width: 20%">
+                                    <mfDefaultSorter by="name">Month</mfDefaultSorter>
+                                </th>
+                                <th style="width: 30%">
+                                    <mfDefaultSorter by="email">JobCard</mfDefaultSorter>
+                                </th>
+                                <th style="width: 20%">
+                                    <mfDefaultSorter by="age">Date</mfDefaultSorter>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of mf.data">
+                                <td>{{item.Month}}</td>
+                                <td>{{item.Job}}</td>
+                                <td>{{item.Date}}</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="4">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                   </div>
                 </div>
@@ -95,7 +125,7 @@
           <h2>Add machine</h2>
           <!-- contact form -->
           <div class="contact-form">
-            <form action="#" method="post">
+            <form #companyForm="ngForm" (ngSubmit)="addMachine()">
               <div class="row">
                 <div class="col-sm-6 col-md-6">
                   <div class="form-content">
@@ -105,6 +135,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.CompanyName"
                     />
                   </div>
                 </div>
@@ -116,6 +147,7 @@
                       class="form-control"
                       required=""
                       type="email"
+                      [(ngModel)]="company.Email"
                     />
                   </div>
                 </div>
@@ -129,6 +161,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.Phone"
                     />
                   </div>
                 </div>
@@ -140,6 +173,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.SerialNumber"
                     />
                   </div>
                 </div>
@@ -153,6 +187,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.Make"
                     />
                   </div>
                 </div>
@@ -164,6 +199,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.Model"
                     />
                   </div>
                 </div>
@@ -177,6 +213,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.RunningHours"
                     />
                   </div>
                 </div>
@@ -188,6 +225,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.LoadingHours"
                     />
                   </div>
                 </div>
@@ -201,6 +239,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.LastServiceDate"
                     />
                   </div>
                 </div>
@@ -212,6 +251,7 @@
                       class="form-control"
                       required=""
                       type="text"
+                      [(ngModel)]="company.LastServiceHours"
                     />
                   </div>
                 </div>
@@ -228,12 +268,14 @@
                       name="msg"
                       placeholder="Message"
                       required=""
+                      [(ngModel)]="company.Message"
                     ></textarea>
                   </div>
                   <button
                     type="submit"
                     name="submit"
                     class="sent-button arina-btn hvr-radial-out"
+                    [disabled]="!companyForm.valid"
                   >
                     SEND
                   </button>
@@ -241,6 +283,7 @@
                     type="reset"
                     name="submit"
                     class="sent-button arina-btn hvr-radial-out"
+                    (click)=reset()
                   >
                     RESET
                   </button>
