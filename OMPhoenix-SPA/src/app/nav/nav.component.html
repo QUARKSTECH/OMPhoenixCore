@@ -77,8 +77,8 @@
               <li *ngIf="loggedIn()">
                 <a [routerLink]="['/company']" routerLinkActive="menu-active" >Company</a>
                 <ul class="drop-menu">
-                  <li><a href="about.html">Add Machine</a></li>
-                  <li><a href="about.html">View Machines</a></li>
+                  <li><a [routerLink]="['/machineadd']" >Add Machine</a></li>
+                  <li><a [routerLink]="['/machinelist']" >List Machines</a></li>
                 </ul>
               </li>
               <li><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
