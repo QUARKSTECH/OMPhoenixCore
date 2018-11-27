@@ -75,11 +75,10 @@
             <ul class="navigation">
               <li><a [routerLink]="['/home']" routerLinkActive="menu-active">Home</a></li>
               <li *ngIf="loggedIn()">
-                <a [routerLink]="['/company']" routerLinkActive="menu-active" >Company</a>
-                <ul class="drop-menu">
+                <a [routerLink]="['/machineadd']" routerLinkActive="menu-active" >Company</a>
+                <!-- <ul class="drop-menu">
                   <li><a [routerLink]="['/machineadd']" >Add Machine</a></li>
-                  <li><a [routerLink]="['/machinelist']" >List Machines</a></li>
-                </ul>
+                </ul> -->
               </li>
               <li><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
               <li>

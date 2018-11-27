@@ -23,8 +23,6 @@ import { IndoForkComponent } from './product/indoFork/indoFork.component';
 import { MarkAirComponent } from './product/markAir/markAir.component';
 import { ParkerComponent } from './product/parker/parker.component';
 import { MachineAddComponent } from './machine/machine-add/machine-add.component';
-import { MachineEditComponent } from './machine/machine-edit/machine-edit.component';
-import { MachineListComponent } from './machine/machine-list/machine-list.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -42,9 +40,7 @@ import { AuthGuard } from './_guards/auth.guard';
       IndoForkComponent,
       MarkAirComponent,
       ParkerComponent,
-      MachineAddComponent,
-      MachineEditComponent,
-      MachineListComponent
+      MachineAddComponent
    ],
    imports: [
       BrowserModule,
