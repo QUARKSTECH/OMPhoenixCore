@@ -25,6 +25,7 @@ import { ParkerComponent } from './product/parker/parker.component';
 import { MachineAddComponent } from './machine/machine-add/machine-add.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
    declarations: [
@@ -40,7 +41,8 @@ import { AuthGuard } from './_guards/auth.guard';
       IndoForkComponent,
       MarkAirComponent,
       ParkerComponent,
-      MachineAddComponent
+      MachineAddComponent,
+      AdminComponent
    ],
    imports: [
       BrowserModule,

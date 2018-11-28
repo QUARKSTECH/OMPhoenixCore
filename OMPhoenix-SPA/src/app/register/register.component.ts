@@ -29,7 +29,8 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel() {
-    this.alertify.message('Cancelled');
+    this.model = {};
+      this.modalRef.hide();
   }
 
   openModal(template: TemplateRef<any>) {
