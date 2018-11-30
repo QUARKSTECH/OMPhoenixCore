@@ -57,9 +57,19 @@
           name="company"
           placeholder="Company Name"
           required
-          [(ngModel)]="model.company"
+          [(ngModel)]="model.companyName"
         />
       </div>
+      <div class="form-group">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            name="contact"
+            placeholder="Contact Number"
+            required
+            [(ngModel)]="model.contactNumber"
+          />
+        </div>
       <div class="form-group text-center">
         <button class="btn btn-success" type="submit">Register</button>
         <button class="btn btn-warning" type="button" (click)="cancel()">

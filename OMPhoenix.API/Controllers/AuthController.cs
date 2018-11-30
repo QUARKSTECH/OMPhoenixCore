@@ -34,7 +34,10 @@ namespace OMPhoenix.API.Controllers
 
             var UserToCreate = new User
             {
-                UserName = userForRegisterDto.UserName
+                UserName = userForRegisterDto.UserName,
+                CompanyName = userForRegisterDto.CompanyName,
+                ContactNumber = userForRegisterDto.ContactNumber,
+                Email = userForRegisterDto.Email
             };
 
             var createdUser = await _repo.Register(UserToCreate, userForRegisterDto.Password);
