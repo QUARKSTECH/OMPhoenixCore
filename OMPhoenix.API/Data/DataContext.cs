@@ -8,5 +8,7 @@ namespace OMPhoenix.API.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Machine> Machines { get; set; }
+        public DbSet<JobCard> JobCards { get; set; }
     }
 }

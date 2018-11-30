@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace OMPhoenix.API.Models
 {
     public class User
@@ -9,5 +12,7 @@ namespace OMPhoenix.API.Models
         public string ContactNumber { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public ICollection<Machine> Machines { get; set; }
     }
 }
