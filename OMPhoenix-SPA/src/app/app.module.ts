@@ -26,6 +26,7 @@ import { MachineAddComponent } from './machine/machine-add/machine-add.component
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { AdminComponent } from './admin/admin.component';
+import { ErrorInterceptorProvider } from './_service/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -56,6 +57,7 @@ import { AdminComponent } from './admin/admin.component';
    ],
    providers: [
       AuthService,
+      ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard
    ],

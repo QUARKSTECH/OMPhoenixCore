@@ -15,6 +15,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.Net;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using OMPhoenix.API.Helpers;
 
 namespace OMPhoenix.API
 {
@@ -75,6 +79,16 @@ namespace OMPhoenix.API
             }
             else
             {
+                app.UseExceptionHandler(builder => {
+                    builder.Run(async httpContext => {
+                        httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        var error = httpContext.Features.Get<IExceptionHandlerFeature>();
+                        if(error != null){
+                            httpContext.Response.AddApplicationError(error.Error.Message);
+                            await httpContext.Response.WriteAsync(error.Error.Message);
+                        }
+                    });
+                });
                 //app.UseHsts();
             }
 
