@@ -75,7 +75,8 @@
             <ul class="navigation">
               <li><a [routerLink]="['/home']" routerLinkActive="menu-active">Home</a></li>
               <li *ngIf="loggedIn()">
-                <a [routerLink]="['/machineadd']" routerLinkActive="menu-active" >Company</a>
+                <a [routerLink]="['/machineadd']" *ngIf="authService.decodedToken?.unique_name!='admin'" routerLinkActive="menu-active" >Company</a>
+                <a [routerLink]="['/admin']" *ngIf="authService.decodedToken?.unique_name==='admin'" routerLinkActive="menu-active" >Admin</a>
                 <!-- <ul class="drop-menu">
                   <li><a [routerLink]="['/machineadd']" >Add Machine</a></li>
                 </ul> -->

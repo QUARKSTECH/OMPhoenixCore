@@ -12,5 +12,6 @@ namespace OMPhoenix.API.Data
          Task<bool> SaveAll();
          Task<IEnumerable<Machine>> GetMachines(int loggedInUserId);
          Task<Machine> GetMachine(int Id);
+         Task<IEnumerable<Machine>> GetAllMachines();
     }
 }

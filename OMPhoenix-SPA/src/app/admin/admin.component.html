@@ -46,12 +46,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let machine of machineTableAdmin.data">
-                <td>{{ machine.Id }}</td>
-                <td>{{ machine.SerialNumber }}</td>
-                <td>{{ machine.Model }}</td>
-                <td>{{ machine.RunningHours }}</td>
-                <td>{{ machine.LoadingHours }}</td>
-                <td><a class="fa fa-edit"></a></td>
+                <td>{{ machine.id }}</td>
+                <td>{{ machine.machineSerialNo }}</td>
+                <td>{{ machine.machineModel }}</td>
+                <td>{{ machine.currentRunningHours }}</td>
+                <td>{{ machine.currentLoadingHours }}</td>
+                <td><a class="fa fa-edit" (click)="editMachine(machine)" style="cursor: pointer"></a></td>
               </tr>
             </tbody>
             <tfoot>
@@ -70,183 +70,17 @@
           <div class="contact-form-area">
               <h2>Add Job Card</h2>
               <!-- contact form -->
-              <div class="contact-form">
-                <form #machineForm="ngForm" (ngSubmit)="addMachine()">
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="name"
-                          placeholder="Company name"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.Company"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="email"
-                          placeholder="Email Address"
-                          class="form-control"
-                          required=""
-                          type="email"
-                          [(ngModel)]="machine.Email"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="contactNo"
-                          placeholder="Contact number"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.Phone"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="serialNo"
-                          placeholder="Machine Serial No."
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.SerialNumber"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="make"
-                          placeholder="Machine make"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.Make"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="model"
-                          placeholder="Machine model"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.Model"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="runningHours"
-                          placeholder="Current running hours"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.RunningHours"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="loadingHours"
-                          placeholder="Current loading hours"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.LoadingHours"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="serviceDate"
-                          placeholder="Last service date"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.LastServiceDate"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                      <div class="form-content">
-                        <input
-                          name="serviceHours"
-                          placeholder="Last service hours"
-                          class="form-control"
-                          required=""
-                          type="text"
-                          [(ngModel)]="machine.LastServiceHours"
-                        />
-                      </div>
-                    </div>
-                  </div>
-    
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-message">
-                        <textarea
-                          class="field-element form-control"
-                          data-gramm="true"
-                          spellcheck="false"
-                          data-gramm_editor="true"
-                          name="msg"
-                          placeholder="Message"
-                          required=""
-                          [(ngModel)]="machine.Message"
-                        ></textarea>
-                      </div>
-                      <button
-                        type="submit"
-                        name="submit"
-                        class="sent-button arina-btn hvr-radial-out"
-                        [disabled]="!machineForm.valid"
-                      >
-                        SAVE
-                      </button>
-                      <button
-                        type="reset"
-                        name="submit"
-                        class="sent-button arina-btn hvr-radial-out"
-                        (click)="reset()"
-                      >
-                        CLEAR
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              
             </div>
       </div>
       <div class="col-sm-6">
         <!-- contact form content -->
-        <div class="contact-form-area">
-          <h2>Add machine</h2>
+        <div class="contact-form-area" id="adminmachineAdd">
+          <h2>Update machine</h2>
           <!-- contact form -->
           <div class="contact-form">
-            <form #machineForm="ngForm" (ngSubmit)="addMachine()">
-              <div class="row">
+            <form #machineForm="ngForm" (ngSubmit)="saveEditedMachine()">
+              <!-- <div class="row">
                 <div class="col-sm-6 col-md-6">
                   <div class="form-content">
                     <input
@@ -255,7 +89,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Company"
+                      [(ngModel)]="machine.companyName"
                     />
                   </div>
                 </div>
@@ -271,7 +105,7 @@
                     />
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="row">
                 <div class="col-sm-6 col-md-6">
                   <div class="form-content">
@@ -281,7 +115,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Phone"
+                      [(ngModel)]="machine.contactNumber"
                     />
                   </div>
                 </div>
@@ -293,7 +127,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.SerialNumber"
+                      [(ngModel)]="machine.machineSerialNo"
                     />
                   </div>
                 </div>
@@ -307,7 +141,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Make"
+                      [(ngModel)]="machine.machineMake"
                     />
                   </div>
                 </div>
@@ -319,7 +153,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Model"
+                      [(ngModel)]="machine.machineModel"
                     />
                   </div>
                 </div>
@@ -333,7 +167,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.RunningHours"
+                      [(ngModel)]="machine.currentRunningHours"
                     />
                   </div>
                 </div>
@@ -345,7 +179,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LoadingHours"
+                      [(ngModel)]="machine.currentLoadingHours"
                     />
                   </div>
                 </div>
@@ -359,7 +193,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LastServiceDate"
+                      [(ngModel)]="machine.lastService"
                     />
                   </div>
                 </div>
@@ -371,7 +205,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LastServiceHours"
+                      [(ngModel)]="machine.lastServiceHours"
                     />
                   </div>
                 </div>
@@ -388,7 +222,7 @@
                       name="msg"
                       placeholder="Message"
                       required=""
-                      [(ngModel)]="machine.Message"
+                      [(ngModel)]="machine.message"
                     ></textarea>
                   </div>
                   <button
@@ -396,8 +230,9 @@
                     name="submit"
                     class="sent-button arina-btn hvr-radial-out"
                     [disabled]="!machineForm.valid"
+                    *ngIf="isEdit"
                   >
-                    SAVE
+                    UPDATE
                   </button>
                   <button
                     type="reset"

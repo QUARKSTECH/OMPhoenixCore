@@ -47,5 +47,11 @@ namespace OMPhoenix.API.Data
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<IEnumerable<Machine>> GetAllMachines()
+        {
+            var allMachines = await _context.Machines.Include(x => x.JobCards).ToListAsync();
+            return allMachines;
+        }
     }
 }
