@@ -20,7 +20,11 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Logged in successfully');
-      this.router.navigate(['/home']);
+      if (this.authService.decodedToken.unique_name === 'admin') {
+        this.router.navigate(['/admin']);
+      } else {
+        this.router.navigate(['/home']);
+      }
     }, error => {
       this.alertify.error(error);
     });

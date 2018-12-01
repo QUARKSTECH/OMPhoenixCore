@@ -13,6 +13,8 @@ namespace OMPhoenix.API.Dtos
         public string MachineModel { get; set; }
         public DateTime LastService { get; set; }
         public string LastServiceHours { get; set; }
+        public string CurrentRunningHours { get; set; }
+        public string CurrentLoadingHours { get; set; }
         public string Message { get; set; }
         public virtual User User { get; set; }
         public int UserId { get; set; }

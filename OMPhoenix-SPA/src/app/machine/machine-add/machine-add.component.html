@@ -7,7 +7,7 @@
           src="../../assets/img/page-title-bg.jpg"
           alt=""
         />
-        <div class="centered"><h1>Company Name</h1></div>
+        <div class="centered"><h1>{{authService.decodedToken?.given_name}}</h1></div>
       </div>
       <div class="col-sm-6">
         <!-- support info -->
@@ -131,7 +131,7 @@
         <div class="contact-form-area">
           <h2>Add machine</h2>
           <!-- contact form -->
-          <div class="contact-form">
+          <div class="contact-form" id="contentMachine">
             <form #machineForm="ngForm" (ngSubmit)="addMachine()">
               <div class="row">
                 <div class="col-sm-6 col-md-6">
@@ -142,7 +142,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Phone"
+                      [(ngModel)]="machine.contactNumber"
                     />
                   </div>
                 </div>
@@ -154,7 +154,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.SerialNumber"
+                      [(ngModel)]="machine.machineSerialNo"
                     />
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Make"
+                      [(ngModel)]="machine.machineMake"
                     />
                   </div>
                 </div>
@@ -180,7 +180,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.Model"
+                      [(ngModel)]="machine.machineModel"
                     />
                   </div>
                 </div>
@@ -194,7 +194,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.RunningHours"
+                      [(ngModel)]="machine.currentRunningHours"
                     />
                   </div>
                 </div>
@@ -206,7 +206,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LoadingHours"
+                      [(ngModel)]="machine.currentLoadingHours"
                     />
                   </div>
                 </div>
@@ -220,7 +220,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LastServiceDate"
+                      [(ngModel)]="machine.lastService"
                     />
                   </div>
                 </div>
@@ -232,7 +232,7 @@
                       class="form-control"
                       required=""
                       type="text"
-                      [(ngModel)]="machine.LastServiceHours"
+                      [(ngModel)]="machine.lastServiceHours"
                     />
                   </div>
                 </div>
@@ -249,7 +249,7 @@
                       name="msg"
                       placeholder="Message"
                       required=""
-                      [(ngModel)]="machine.Message"
+                      [(ngModel)]="machine.message"
                     ></textarea>
                   </div>
                   <button
@@ -318,15 +318,15 @@
           </thead>
           <tbody>
             <tr *ngFor="let machine of machineTable.data">
-              <td>{{ machine.Id }}</td>
-              <td>{{ machine.SerialNumber }}</td>
-              <td>{{ machine.Make }}</td>
-              <td>{{ machine.Model }}</td>
-              <td>{{ machine.RunningHours }}</td>
-              <td>{{ machine.LoadingHours }}</td>
-              <td>{{ machine.LastServiceDate }}</td>
-              <td>{{ machine.LastServiceHours }}</td>
-              <td><a class="fa fa-edit"></a></td>
+              <td>{{ machine.id }}</td>
+              <td>{{ machine.machineSerialNo }}</td>
+              <td>{{ machine.machineMake }}</td>
+              <td>{{ machine.machineModel }}</td>
+              <td>{{ machine.currentRunningHours }}</td>
+              <td>{{ machine.currentLoadingHours }}</td>
+              <td>{{ machine.lastService }}</td>
+              <td>{{ machine.lastServiceHours }}</td>
+              <td><a class="fa fa-edit" (click)="editMachine(machine)" style="cursor: pointer"></a></td>
             </tr>
           </tbody>
           <tfoot>
