@@ -8,8 +8,9 @@ namespace OMPhoenix.API.Data
     {
          void Add<T>(T entity) where T: class;
          void Delete<T>(T entity) where T: class;
+         void Edit<T>(T entity) where T: class;
          Task<bool> SaveAll();
-         Task<IEnumerable<Machine>> GetMachines();
+         Task<IEnumerable<Machine>> GetMachines(int loggedInUserId);
          Task<Machine> GetMachine(int Id);
     }
 }

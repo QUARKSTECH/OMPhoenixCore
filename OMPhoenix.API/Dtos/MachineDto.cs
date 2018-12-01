@@ -7,7 +7,7 @@ namespace OMPhoenix.API.Dtos
     public class MachineDto
     {
         public int Id { get; set; }
-        public int ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
         public string MachineSerialNo { get; set; }
         public string MachineMake { get; set; }
         public string MachineModel { get; set; }

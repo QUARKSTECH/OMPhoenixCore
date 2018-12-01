@@ -9,7 +9,7 @@ using OMPhoenix.API.Data;
 namespace OMPhoenix.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181130231754_UserMachineJobCardEntityAdded")]
+    [Migration("20181201073939_UserMachineJobCardEntityAdded")]
     partial class UserMachineJobCardEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace OMPhoenix.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ContactNumber");
+                    b.Property<string>("ContactNumber");
 
                     b.Property<DateTime>("LastService");
 

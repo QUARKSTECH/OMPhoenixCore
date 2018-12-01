@@ -41,7 +41,7 @@ namespace OMPhoenix.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ContactNumber");
+                    b.Property<string>("ContactNumber");
 
                     b.Property<DateTime>("LastService");
 

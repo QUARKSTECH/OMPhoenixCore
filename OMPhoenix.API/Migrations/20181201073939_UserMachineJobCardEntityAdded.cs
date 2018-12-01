@@ -19,7 +19,7 @@ namespace OMPhoenix.API.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ContactNumber = table.Column<int>(nullable: false),
+                    ContactNumber = table.Column<string>(nullable: true),
                     MachineSerialNo = table.Column<string>(nullable: true),
                     MachineMake = table.Column<string>(nullable: true),
                     MachineModel = table.Column<string>(nullable: true),
