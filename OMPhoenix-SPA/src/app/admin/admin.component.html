@@ -11,7 +11,63 @@
       </div>
       <div class="col-sm-12" style="overflow-x: auto">
         <div class="row">
-          <h2>All Machines</h2>
+          <h2>Companies</h2>
+          <table
+            class="table table-striped"
+            [mfData]="userList"
+            #companyTableAdmin="mfDataTable"
+            [mfRowsOnPage]="5"
+          >
+            <thead>
+              <tr>
+                <th style="width: 15%">
+                  <mfDefaultSorter by="id">Id</mfDefaultSorter>
+                </th>
+                <th style="width: 15%">
+                  <mfDefaultSorter by="userName">UserName</mfDefaultSorter>
+                </th>
+                <th style="width: 15%">
+                  <mfDefaultSorter by="companyName">Company Name</mfDefaultSorter>
+                </th>
+                <th style="width: 15%">
+                  <mfDefaultSorter by="email">Email</mfDefaultSorter
+                  >
+                </th>
+                <th style="width: 1%">
+                  <mfDefaultSorter by="contactNumber">Contact Number</mfDefaultSorter
+                  >
+                </th>
+                <th style="width: 20%">
+                  <mfDefaultSorter by="createdDate">Created Date</mfDefaultSorter>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of companyTableAdmin.data">
+                <td>{{ user.id }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.companyName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.contactNumber }}</td>
+                <td>{{ user.createdDate }}</td>
+                <td><a class="fa fa-edit" (click)="editUser(user)" style="cursor: pointer"></a></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">
+                  <mfBootstrapPaginator
+                    [rowsOnPageSet]="[5, 10, 25]"
+                  ></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-12" style="overflow-x: auto">
+        <div class="row">
+          <h2>Machines</h2>
           <table
             class="table table-striped"
             [mfData]="machineList"
@@ -67,9 +123,80 @@
         </div>
       </div>
       <div class="col-sm-6">
-          <div class="contact-form-area">
-              <h2>Add Job Card</h2>
+          <div class="contact-form-area" id="adminUserAdd">
+              <h2>Update Company</h2>
               <!-- contact form -->
+              <div class="contact-form">
+                <form #userForm="ngForm" (ngSubmit)="saveEditedUser()">
+                  <div class="form-content">
+                    <input
+                      name="username"
+                      placeholder="User Name"
+                      class="form-control"
+                      required=""
+                      type="text"
+                      [(ngModel)]="user.userName"
+                    />
+                  </div>    
+                  <div class="form-content">
+                        <input
+                          name="name"
+                          placeholder="Company name"
+                          class="form-control"
+                          required=""
+                          type="text"
+                          [(ngModel)]="user.companyName"
+                        />
+                      </div>
+                      <div class="form-content">
+                        <input
+                          name="email"
+                          placeholder="Email Address"
+                          class="form-control"
+                          required=""
+                          type="email"
+                          [(ngModel)]="user.email"
+                        />
+                      </div>
+                      <div class="form-content">
+                        <input
+                          name="contact"
+                          placeholder="Contact Number"
+                          class="form-control"
+                          required=""
+                          type="text"
+                          [(ngModel)]="user.contactNumber"
+                        />
+                      </div>
+                      <div class="form-content">
+                        <input
+                          name="createdDate"
+                          placeholder="Created Date"
+                          class="form-control"
+                          required=""
+                          type="text"
+                          [(ngModel)]="user.createdDate"
+                        />
+                      </div>
+                      <button
+                    type="submit"
+                    name="submit"
+                    class="sent-button arina-btn hvr-radial-out"
+                    [disabled]="!userForm.valid"
+                    *ngIf="isEditUser"
+                  >
+                    UPDATE
+                  </button>
+                  <button
+                    type="reset"
+                    name="submit"
+                    class="sent-button arina-btn hvr-radial-out"
+                    (click)="reset()"
+                  >
+                    CLEAR
+                  </button>
+                </form>
+              </div>
               
             </div>
       </div>

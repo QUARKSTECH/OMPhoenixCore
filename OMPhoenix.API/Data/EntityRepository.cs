@@ -53,5 +53,11 @@ namespace OMPhoenix.API.Data
             var allMachines = await _context.Machines.Include(x => x.JobCards).ToListAsync();
             return allMachines;
         }
+
+        public async Task<IEnumerable<User>> GetAllUsers()
+        {
+            var allUsers = await _context.Users.ToListAsync();
+            return allUsers;
+        }
     }
 }

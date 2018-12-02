@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using OMPhoenix.API.Dtos;
 using OMPhoenix.API.Models;
@@ -13,6 +14,9 @@ namespace OMPhoenix.API.Helpers
 
             CreateMap<JobCard, JobCardDto>();
             CreateMap<JobCardDto, JobCard>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
         }
     }
 }

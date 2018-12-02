@@ -20,19 +20,34 @@ export class AdminComponent implements OnInit {
   machine: any = {};
   baseurl  =  environment.apiUrl + 'admin/';
   isEdit: any = false;
+  userList: any = [];
+  user: any = {};
+  isEditUser: any = false;
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
 
   }
 
   ngOnInit() {
     this.getAllMachines();
+    this.getAllUsers();
   }
 
   getAllMachines() {
     this.http.get(this.baseurl, httpOptions).subscribe(
       response => {
         this.machineList = response;
-        console.log(this.authService.decodedToken);
+        // console.log(this.authService.decodedToken);
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
+  getAllUsers() {
+    this.http.get(this.baseurl + 'getusers', httpOptions).subscribe(
+      response => {
+        this.userList = response;
       },
       error => {
         this.alertify.error(error);
@@ -53,6 +68,19 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  saveEditedUser() {
+    this.http.post(this.baseurl + 'updateusers', this.user, httpOptions).subscribe(
+      response => {
+        console.log(this.user);
+        this.reset();
+        this.alertify.success('Company updated successfully');
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
   editMachine(machineobj) {
     this.isEdit = true;
     this.machine = machineobj;
@@ -60,8 +88,17 @@ export class AdminComponent implements OnInit {
     elmnt.scrollIntoView();
   }
 
+  editUser(userObj) {
+    this.isEditUser = true;
+    this.user = userObj;
+    const elmnt = document.getElementById('adminUserAdd');
+    elmnt.scrollIntoView();
+  }
+
   reset() {
     this.machine = {};
+    this.user = {};
     this.isEdit = false;
+    this.isEditUser = false;
   }
 }
