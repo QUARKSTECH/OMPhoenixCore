@@ -1,30 +1,46 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OMPhoenix.API.Migrations
 {
-    public partial class UserMachineJobCardEntityAdded : Migration
+    public partial class InitailMigrationsMySql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
-                name: "CreatedDate",
-                table: "Users",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    UserName = table.Column<string>(nullable: true),
+                    CompanyName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    ContactNumber = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<byte[]>(nullable: true),
+                    PasswordSalt = table.Column<byte[]>(nullable: true),
+                    CreatedDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Machines",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ContactNumber = table.Column<string>(nullable: true),
                     MachineSerialNo = table.Column<string>(nullable: true),
                     MachineMake = table.Column<string>(nullable: true),
                     MachineModel = table.Column<string>(nullable: true),
                     LastService = table.Column<DateTime>(nullable: false),
                     LastServiceHours = table.Column<string>(nullable: true),
+                    CurrentRunningHours = table.Column<string>(nullable: true),
+                    CurrentLoadingHours = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
                 },
@@ -44,7 +60,7 @@ namespace OMPhoenix.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Url = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     CreatedDate = table.Column<DateTime>(nullable: false),
@@ -80,9 +96,8 @@ namespace OMPhoenix.API.Migrations
             migrationBuilder.DropTable(
                 name: "Machines");
 
-            migrationBuilder.DropColumn(
-                name: "CreatedDate",
-                table: "Users");
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
