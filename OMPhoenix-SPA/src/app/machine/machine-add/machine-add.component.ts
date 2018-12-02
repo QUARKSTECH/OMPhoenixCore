@@ -37,8 +37,7 @@ export class MachineAddComponent implements OnInit {
   addMachine() {
     this.http.post(this.baseurl, this.machine, httpOptions).subscribe(
       response => {
-        const index = this.machineList.findIndex(item => item.id === response.id);
-        if (index === -1) {
+        if (!this.machine.id) {
           this.machineList.push(response);
           this.alertify.success('Machine added successfully');
         }
