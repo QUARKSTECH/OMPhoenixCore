@@ -33,7 +33,7 @@ namespace OMPhoenix.API.Data
         }
         public async Task<Machine> GetMachine(int Id)
         {
-            var machine = await _context.Machines.Include(x => x.JobCards).FirstOrDefaultAsync(m => m.UserId == Id);
+            var machine = await _context.Machines.Include(x => x.JobCards).FirstOrDefaultAsync(m => m.Id == Id);
             return machine;
         }
 
@@ -58,6 +58,12 @@ namespace OMPhoenix.API.Data
         {
             var allUsers = await _context.Users.ToListAsync();
             return allUsers;
+        }
+
+        public async Task<JobCard> GetJobCard(int Id)
+        {
+            var jobCard = await _context.JobCards.FirstOrDefaultAsync(m => m.Id == Id);
+            return jobCard;
         }
     }
 }
