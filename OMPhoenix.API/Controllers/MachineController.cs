@@ -66,20 +66,22 @@ namespace OMPhoenix.API.Controllers
         [Route("request")]
         public IActionResult SendRequestMail(RequestDto requestDto)
         {
-            var emailAddress = new EmailAddress(){
-                Name = "OM Phoenix Traders",
-                Address = "sales@omphoenixtraders.com"
-            };
-            var fromAddress = new EmailAddress(){
-                Name = "OM Phoenix Traders",
-                Address = "sales@omphoenixtraders.com"
-            };
             var userName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.User.FindFirstValue(ClaimTypes.Name));
             var company = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.User.FindFirstValue(ClaimTypes.GivenName));
             var template = $"Hello, Rajat\n\n {userName} from {company} has requested:- ";
+
+            var toEmailAddress = new EmailAddress(){
+                Name = "OM Phoenix Traders",
+                Address = "sales@omphoenixtraders.com"
+            };
+            var fromEmailAddress = new EmailAddress(){
+                Name = userName,
+                Address = ""
+            };
+            
             var emailMessage = new EmailMessage(){
-                ToAddresses = new List<EmailAddress>(){emailAddress},
-                FromAddresses = new List<EmailAddress>(){fromAddress},
+                ToAddresses = new List<EmailAddress>(){toEmailAddress},
+                FromAddresses = new List<EmailAddress>(){fromEmailAddress},
                 Subject = requestDto.RequestType,
                 Content = template + (requestDto.RequestType == "ServiceRequest" ? requestDto.ServiceCategory : requestDto.PartNumber + " " + requestDto.MachineModel)
             };
