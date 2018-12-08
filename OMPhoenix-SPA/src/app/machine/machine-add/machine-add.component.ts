@@ -20,14 +20,17 @@ export class MachineAddComponent implements OnInit {
 
   jobCard: any = [];
   machine: any = {};
-  material: any = {};
+  requestModel: any = {};
   machineList: any = [];
+  requestEmail: any = {};
   baseurl  =  environment.apiUrl + 'machine/';
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
     // this.jobCard = [{Month: 'Jan', Job: 'JB01', Date: '25-11-18'},
     // {Month: 'Feb', Job: 'JB02', Date: '18-11-18'},
     // {Month: 'Mar', Job: 'JB03', Date: '21-11-18'}];
-    this.machine.serviceType = true;
+     this.requestModel.serviceType = true;
+    // this.requestModel.PartNumber = '';
+    // this.requestModel.Model = '';
   }
 
   ngOnInit() {
@@ -70,5 +73,29 @@ export class MachineAddComponent implements OnInit {
 
   reset() {
     this.machine = {};
+  }
+
+  request(type) {
+    this.requestModel.requestType = type;
+    if (type === 'ServiceRequest') {
+      if (this.requestModel.serviceType) {
+        this.requestModel.serviceCategory = 'General Service';
+      } else {
+        this.requestModel.serviceCategory = 'Breakdown Service';
+      }
+    }
+    this.http.post(this.baseurl + 'request/', this.requestModel, httpOptions).subscribe(
+      response => {
+        if (response) {
+          this.alertify.success('Request mail has been sent successfully');
+          this.requestModel.serviceType = true;
+        }
+      },
+      error => {
+        this.alertify.error(error);
+        this.requestModel.serviceType = true;
+      }
+    );
+    this.requestModel = {};
   }
 }
