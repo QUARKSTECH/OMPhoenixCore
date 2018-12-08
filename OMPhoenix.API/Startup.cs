@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Http;
 using OMPhoenix.API.Helpers;
 using AutoMapper;
 using OMPhoenix.API.Helpers.Mail;
+using OMPhoenix.API.Helpers.SMS;
 
 namespace OMPhoenix.API
 {
@@ -43,6 +44,7 @@ namespace OMPhoenix.API
                 });
             services.AddSingleton<IEmailConfiguration>(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ISmsService, SmsService>();
             services.AddCors();
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -66,6 +68,7 @@ namespace OMPhoenix.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton<IEmailConfiguration>(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ISmsService, SmsService>();
             services.AddCors();
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
