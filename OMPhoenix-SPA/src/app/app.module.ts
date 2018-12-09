@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
 import {DataTableModule} from 'angular-6-datatable';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -27,6 +28,7 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { ErrorInterceptorProvider } from './_service/error.interceptor';
+import { FileUploadComponent } from './fileUpload/fileUpload.component';
 
 @NgModule({
    declarations: [
@@ -43,7 +45,8 @@ import { ErrorInterceptorProvider } from './_service/error.interceptor';
       MarkAirComponent,
       ParkerComponent,
       MachineAddComponent,
-      AdminComponent
+      AdminComponent,
+      FileUploadComponent
    ],
    imports: [
       BrowserModule,
@@ -53,7 +56,8 @@ import { ErrorInterceptorProvider } from './_service/error.interceptor';
       ModalModule.forRoot(),
       OwlModule,
       RouterModule.forRoot(appRoutes),
-      DataTableModule
+      DataTableModule,
+      FileUploadModule
    ],
    providers: [
       AuthService,

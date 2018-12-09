@@ -40,6 +40,9 @@
                 <th style="width: 20%">
                   <mfDefaultSorter by="createdDate">Created Date</mfDefaultSorter>
                 </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="createdDate">Action</mfDefaultSorter>
+                  </th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +52,7 @@
                 <td>{{ user.companyName }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.contactNumber }}</td>
-                <td>{{ user.createdDate }}</td>
+                <td>{{ user.createdDate | date}}</td>
                 <td><a class="fa fa-edit" (click)="editUser(user)" style="cursor: pointer"></a></td>
               </tr>
             </tbody>
@@ -96,8 +99,11 @@
                   >
                 </th>
                 <th style="width: 20%">
-                  <mfDefaultSorter by="age">Action</mfDefaultSorter>
+                  <mfDefaultSorter by="age">Edit</mfDefaultSorter>
                 </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="age">Upload</mfDefaultSorter>
+                  </th>
               </tr>
             </thead>
             <tbody>
@@ -108,6 +114,7 @@
                 <td>{{ machine.currentRunningHours }}</td>
                 <td>{{ machine.currentLoadingHours }}</td>
                 <td><a class="fa fa-edit" (click)="editMachine(machine)" style="cursor: pointer"></a></td>
+                <td><app-fileupload [machineId]="machine.id" (uploadedJobCardEvent)="uploadedJobCard($event)"></app-fileupload></td>
               </tr>
             </tbody>
             <tfoot>
@@ -374,6 +381,62 @@
             </form>
           </div>
         </div>
+      </div>
+      <div class="col-sm-12" style="overflow-x: auto">
+          <h2>Service Job Cards</h2>
+          <div class="footer-widgets address-wid con-info">
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div>
+                  <table
+                    class="table table-striped"
+                    [mfData]="jobCard"
+                    #jobcardTable="mfDataTable"
+                    [mfRowsOnPage]="10"
+                  >
+                    <thead>
+                      <tr>
+                        <th style="width: 20%">
+                          <mfDefaultSorter by="email">JobCard</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="name">MachineId</mfDefaultSorter>
+                          </th>
+                        <th style="width: 20%">
+                          <mfDefaultSorter by="name">Month</mfDefaultSorter>
+                        </th>
+
+                        <th style="width: 20%">
+                          <mfDefaultSorter by="age">View</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="age">Delete</mfDefaultSorter>
+                          </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of jobcardTable.data">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.machineId }}</td>
+                        <td>{{ item.createdDate | date }}</td>
+                        <td><a href="{{item.url}}" target="_blank"><i class="fa fa-eye"></i></a></td>
+                        <td><a href=""><i class="fa fa-trash"></i></a></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="4">
+                          <mfBootstrapPaginator
+                            [rowsOnPageSet]="[5, 10, 25]"
+                          ></mfBootstrapPaginator>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

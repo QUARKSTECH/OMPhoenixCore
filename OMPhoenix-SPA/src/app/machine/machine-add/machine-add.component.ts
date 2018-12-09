@@ -24,13 +24,12 @@ export class MachineAddComponent implements OnInit {
   machineList: any = [];
   requestEmail: any = {};
   baseurl  =  environment.apiUrl + 'machine/';
+
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
     // this.jobCard = [{Month: 'Jan', Job: 'JB01', Date: '25-11-18'},
     // {Month: 'Feb', Job: 'JB02', Date: '18-11-18'},
     // {Month: 'Mar', Job: 'JB03', Date: '21-11-18'}];
      this.requestModel.serviceType = true;
-    // this.requestModel.PartNumber = '';
-    // this.requestModel.Model = '';
   }
 
   ngOnInit() {
@@ -57,6 +56,13 @@ export class MachineAddComponent implements OnInit {
     this.http.get(this.baseurl, httpOptions).subscribe(
       response => {
         this.machineList = response;
+        this.machineList.forEach(element => {
+          if (element.jobCards.length > 0 ) {
+            element.jobCards.forEach(subElement => {
+              this.jobCard.push(subElement);
+            });
+          }
+        });
         console.log(this.authService.decodedToken);
       },
       error => {

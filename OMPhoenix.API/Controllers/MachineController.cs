@@ -34,7 +34,8 @@ namespace OMPhoenix.API.Controllers
         {
             var loggedInUserId = Convert.ToInt32(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
             var machines = await _repo.GetMachines(loggedInUserId);
-            return Ok(machines);
+            var machineDto = _mapper.Map<IEnumerable<MachineDto>>(machines);
+            return Ok(machineDto);
         }
 
         [HttpGet("{Id}")]
