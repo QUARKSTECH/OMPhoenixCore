@@ -110,4 +110,8 @@ export class AdminComponent implements OnInit {
     this.isEdit = false;
     this.isEditUser = false;
   }
+
+  uploadedJobCard(jobObj) {
+    this.jobCard.push(jobObj);
+  }
 }

@@ -114,7 +114,7 @@
                 <td>{{ machine.currentRunningHours }}</td>
                 <td>{{ machine.currentLoadingHours }}</td>
                 <td><a class="fa fa-edit" (click)="editMachine(machine)" style="cursor: pointer"></a></td>
-                <td><a class="fa fa-upload" (click)="editMachine(machine)" style="cursor: pointer"></a></td>
+                <td><app-fileupload [machineId]="machine.id" (uploadedJobCardEvent)="uploadedJobCard($event)"></app-fileupload></td>
               </tr>
             </tbody>
             <tfoot>
@@ -392,7 +392,7 @@
                     class="table table-striped"
                     [mfData]="jobCard"
                     #jobcardTable="mfDataTable"
-                    [mfRowsOnPage]="5"
+                    [mfRowsOnPage]="10"
                   >
                     <thead>
                       <tr>
