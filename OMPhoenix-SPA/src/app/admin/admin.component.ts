@@ -23,6 +23,8 @@ export class AdminComponent implements OnInit {
   userList: any = [];
   user: any = {};
   isEditUser: any = false;
+  jobCard: any = [];
+
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
 
   }
@@ -36,6 +38,13 @@ export class AdminComponent implements OnInit {
     this.http.get(this.baseurl, httpOptions).subscribe(
       response => {
         this.machineList = response;
+        this.machineList.forEach(element => {
+          if (element.jobCards.length > 0 ) {
+            element.jobCards.forEach(subElement => {
+              this.jobCard.push(subElement);
+            });
+          }
+        });
         // console.log(this.authService.decodedToken);
       },
       error => {

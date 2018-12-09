@@ -26,7 +26,8 @@ namespace OMPhoenix.API.Controllers
         public async Task<IActionResult> GetAllMachines()
         {
             var allMachines = await _repo.GetAllMachines();
-            return Ok(allMachines);
+            var machinesDto = _mapper.Map<IEnumerable<MachineDto>>(allMachines);
+            return Ok(machinesDto);
         }
 
         [HttpPost]
