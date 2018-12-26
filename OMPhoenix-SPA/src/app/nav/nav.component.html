@@ -4,22 +4,22 @@
   <div class="top-header-area">
     <div class="customContainer">
       <div class="row">
-        <div class="col-md-3">
-          <!-- company slogan -->
+       <!----- <div class="col-md-4">
+           company slogan 
           <div class="slogan">
             <p>Shape your dream with the help of expert builders</p>
           </div>
-        </div>
-        <div class="col-md-4">
+        </div>---->
+        <div class="col-md-6">
           <!-- header contact -->
           <div class="top-header-info">
             <a href="mailto:sales@omphoenixtraders.com"
               ><i class="fa fa-envelope"></i>sales@omphoenixtraders.com</a
-            ><br>
+            >
             <a><i class="fa fa-phone"></i>75430 97583</a>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <form *ngIf="!loggedIn()"
             #loginForm="ngForm"
             class="form-inline my-2 my-lg-0"
@@ -41,8 +41,10 @@
               required
               [(ngModel)]="model.password"
             />
-            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-            <app-register *ngIf="!loggedIn()"></app-register>
+            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"style="background-color: #ffbd1f;
+            color: black;" >Login</button>
+            <app-register *ngIf="!loggedIn()" style="background-color: #b84b17;
+            color: yellow;"></app-register>
           </form>
           <div *ngIf="loggedIn()" class="dropdown text-right" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>
@@ -74,6 +76,7 @@
           <nav class="main-menu">
             <ul class="navigation">
               <li><a [routerLink]="['/home']" routerLinkActive="menu-active">Home</a></li>
+              <li><a [routerLink]="['/about']" routerLinkActive="menu-active">About Us</a></li>
               <li *ngIf="loggedIn()">
                 <a [routerLink]="['/machineadd']" *ngIf="authService.decodedToken?.unique_name!='admin'" routerLinkActive="menu-active" >Company</a>
                 <a [routerLink]="['/admin']" *ngIf="authService.decodedToken?.unique_name==='admin'" routerLinkActive="menu-active" >Admin</a>
@@ -82,8 +85,17 @@
                 </ul> -->
               </li>
               <li><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
+              <li><a href="#">Product</a>
+                <ul class="drop-menu">
+                    <li><a [routerLink]="['/IndoFork']" routerLinkActive="menu-active" >Indo Fork</a></li>
+                    <li><a [routerLink]="['/Mark']" routerLinkActive="menu-active" >Mark</a></li>
+                    <li><a [routerLink]="['/Parker']" routerLinkActive="menu-active" >Parker</a></li>
+                  <li><a [routerLink]="['/Lock']" routerLinkActive="menu-active" >Lock</a></li>
+                    <li><a [routerLink]="['/PenumaticFitting']" routerLinkActive="menu-active" > fitting</a></li>
+                </ul>
+            </li>
               <li>
-                <a [routerLink]="['/product']" routerLinkActive="menu-active" >Product</a>
+                <a [routerLink]="['/WhyUs']" routerLinkActive="menu-active" >Why Us?</a>
                 <!-- <ul class="drop-menu">
                   <li><a href="indofork.html">Indo Fork</a></li>
                   <li><a href="mark.html">Mark</a></li>
@@ -148,7 +160,9 @@
             required
             [(ngModel)]="model.password"
           />
-          <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+          <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffbd1f;
+    font-weight: black;
+    color: darkgreen;">Login</button>
         </form>
       </div>
     </nav>
