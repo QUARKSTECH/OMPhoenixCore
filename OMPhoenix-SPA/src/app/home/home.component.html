@@ -15,9 +15,10 @@
 <section class="about-area section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center">
-        <div class="title text-center">
-          <h2>About us</h2>
+      <div class="col-md-12 col-md-offset-2 text-center">
+                    <!-- section title -->
+                    <div class="title">
+          <h2 style="color:#FFBD1F">About us</h2>
           <p>
             OM PHOENIX TRADERS (OPT) is a registered company Authorized Dealer
             of : - <br />
@@ -58,7 +59,7 @@
             doorsteps with optimum cost.
           </p>
 
-          <a href="about.html" class="arina-btn hvr-radial-out">read more</a>
+          <a [routerLink]="['/about']" class="arina-btn hvr-radial-out">read more</a>
         </div>
       </div>
       <!-- about content -->
@@ -71,7 +72,7 @@
 <section class="choose-area section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center">
+      <div class="col-md-12 col-md-offset-2 text-center">
         <div class="title">
           <h2>our service</h2>
           <p>
@@ -140,8 +141,8 @@
         </div>
       </div>
 
-      <a class="center" href="services.html" class="arina-btn hvr-radial-out"
-        >read more</a
+      <a class="center" [routerLink]="['/service']"  class="arina-btn hvr-radial-out"
+        >Read more</a
       >
     </div>
   </div>
@@ -149,39 +150,60 @@
 <!-- ======= service area end ======= -->
 
 <!-- ======= Why Choose Us start ======= -->
-<section class="destination-area section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="video">
-          <iframe
-            class="embed-responsive-item des-video"
-            src="https://www.youtube.com/embed/psYDmnw-VIM?ecver=1"
-            allowfullscreen=""
-          ></iframe>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="des-info">
-          <h2>Why choose us?</h2>
-          <p>
-            We follow some regular steps for our customers so that each and
-            every point should be checked manually. for this we follow the
-            steps.
-          </p>
 
-          <ul class="check-list">
-            <li>AIR COMPRESSOR MAINTENANCE.</li>
-            <li>COMPRESSED AIR GENERATION.</li>
-            <li>COMPRESSED AIR TREATMENT SOLUTION.</li>
-            <li>COMPRESSED AIR SOLUTION CUNSULTANT.</li>
-            <li>AIR COMPRESSOR INSTALLATION AND COMMISSIONING.</li>
-          </ul>
+
+<section class="destination-area section-padding">
+ 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="video1">
+            
+            <iframe     class="embed-responsive-item des-video" width="100%" height="310" src="https://www.youtube.com/embed/VoJ6nKNfIJI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="des-info">
+            <h2>Why choose us?</h2>
+            <p>
+              We follow some regular steps for our customers so that each and
+              every point should be checked manually. for this we follow the
+              steps.
+            </p>
+  
+            <ul class="check-list">
+              <li>AIR COMPRESSOR MAINTENANCE.</li>
+              <li>COMPRESSED AIR GENERATION.</li>
+              <li>COMPRESSED AIR TREATMENT SOLUTION.</li>
+              <li>COMPRESSED AIR SOLUTION CUNSULTANT.</li>
+              <li>AIR COMPRESSOR INSTALLATION AND COMMISSIONING.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="destination-area section-padding">
+ 
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-3">
+            <iframe     class="embed-responsive-item des-video" width="100%" height="310" src="https://www.youtube.com/embed/mw9C23Z1lQk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-3">
+            <iframe     class="embed-responsive-item des-video" width="100%" height="310" src="https://www.youtube.com/embed/0_ZgCWsikJ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-3">
+            <iframe     class="embed-responsive-item des-video" width="100%" height="310" src="https://www.youtube.com/embed/TvCxO2v-u_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-3">
+            <iframe     class="embed-responsive-item des-video" width="100%" height="310" src="https://www.youtube.com/embed/kWKCGND2lyQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 <!-- ======= destination area end ======= -->
 
 <!-- ======= news area start ======= -->
@@ -256,8 +278,7 @@
               </p>
               <h3>- Raj Kishor</h3>
             </div>
-            <!-- Single client -->
-            <!--
+            
               <div class="client-comments-details">
                 <img
                   src="../../assets/images/testimonial.jpg"
@@ -271,8 +292,7 @@
                 <h3>- Rakesh Sharma</h3>
               </div>
             -->
-            <!-- Single client -->
-            <!--
+           
               <div class="client-comments-details">
                 <img
                   src="../../assets/images/testimonial.jpg"
@@ -284,7 +304,7 @@
                 </p>
                 <h3>- Dheeraj Pandey</h3>
               </div>
-            -->
+         
           </div>
         </div>
       </div>
@@ -300,21 +320,21 @@
       <!-- single project count -->
       <div class="col-md-4 col-sm-6">
         <div class="project-count-info">
-          <span class="counter" data-count="1950">0</span> <span>+</span>
+          <span class="counter" data-count="1950">110</span> <span>+</span>
           <h3>Happy Customer</h3>
         </div>
       </div>
       <!-- single project count -->
       <div class="col-md-4 col-sm-6">
         <div class="project-count-info">
-          <span class="counter" data-count="5">0</span> <span>+</span>
+          <span class="counter" data-count="5">20</span> <span>+</span>
           <h3>Sub Branches</h3>
         </div>
       </div>
       <!-- single project count -->
       <div class="col-md-4 col-sm-6">
         <div class="project-count-info">
-          <span class="counter" data-count="347">0</span> <span>+</span>
+          <span class="counter" data-count="347">24</span> <span>+</span>
           <h3>Team Members</h3>
         </div>
       </div>
@@ -329,7 +349,8 @@
     <div class="row">
       <h2 class="text-center">Our Team</h2>
       <br /><br /><br />
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-12">
+      <div class="col-md-3 col-sm-6 my_client">
         <!-- single team -->
         <div class="team-info">
           <div class="member-img">
@@ -337,50 +358,48 @@
           </div>
           <div class="member-info">
             <h3>Mr. Rajeev</h3>
-            <span>HIGHCO Engg. Pvt. Ltd.</span>
+            <span>Business Developer.</span>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6 my_client">
         <!-- single team -->
         <div class="team-info">
           <div class="member-img">
-            <img src="../../assets/images/team1.png" alt="team members" />
+            <img src="../../assets/images/team2.png" alt="team members"  />
           </div>
           <div class="member-info">
-            <h3>Mr. Rajeev</h3>
-            <span>HIGHCO Engg. Pvt. Ltd.</span>
+            <h3>Ragini Gupta</h3>
+            <span>Tech Support</span>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6 my_client">
         <!-- single team -->
         <div class="team-info">
           <div class="member-img">
-            <img src="../../assets/images/team1.png" alt="team members" />
+            <img src="../../assets/images/team3.png" alt="team members"  />
           </div>
           <div class="member-info">
-            <h3>Mr. Rajeev</h3>
-            <span>HIGHCO Engg. Pvt. Ltd.</span>
+            <h3>Suresh Mishra</h3>
+            <span>Accoutant</span>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6">
+      <div class="col-md-3 col-sm-6 my_client">
         <!-- single team -->
         <div class="team-info">
           <div class="member-img">
-            <img src="../../assets/images/team1.png" alt="team members" />
+            <img src="../../assets/images/team4.png" alt="team members"  />
           </div>
           <div class="member-info">
-            <h3>Mr. Rajeev</h3>
-            <span>HIGHCO Engg. Pvt. Ltd.</span>
+            <h3>Manjeet Kaur</h3>
+            <span>Senior Executive</span>
           </div>
         </div>
       </div>
-
-      <a class="center" href="team.html" class="arina-btn hvr-radial-out"
-        >read more</a
-      >
+      </div>
+ 
     </div>
   </div>
 </section>
