@@ -23,3 +23,6 @@ background-color:#423e42;
     margin-bottom: 3rem;
     position: relative;
 }
+.my_client {
+    max-width: 80%;
+}
