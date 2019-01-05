@@ -69,11 +69,8 @@ export class HomeComponent implements OnInit {
   constructor() {
     this.mySlideImages = [1, 2, 3].map((i) => '../assets/images/slider/' + i + '.jpg');
     this.mySlideOptions = {items: 1, dots: true, loop: true, autoplay: true, margin : 40};
-    this.customerImages =  ['../../assets/images/rice mills.jpg', '../../assets/images/auto-parts.jpg', '../../assets/images/steel ind.jpg',
-  '../../assets/images/MEDICAL INDUSTRIES.jpg', '../../assets/images/food INDUSTRIES.jpg'];
-  this.customerOptions = {items: 1, dots: true, nav: true};
-  this.clientOptions = {items: 3, dots: true, loop: true, autoplay: true, margin : 40};
-  this.teamOptions = {items: 3, loop: true, autoplay: true};
+    this.clientOptions = {items: 3, dots: true, loop: true, autoplay: true, margin : 40};
+    this.teamOptions = {items: 3, loop: true, autoplay: true};
   }
 
   ngOnInit() {
