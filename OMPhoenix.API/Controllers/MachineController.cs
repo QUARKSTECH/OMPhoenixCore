@@ -29,11 +29,12 @@ namespace OMPhoenix.API.Controllers
 
         }
 
+        [Route("getusermachines")]
         [HttpGet]
-        public async Task<IActionResult> GetMachines()
+        
+        public async Task<IActionResult> GetMachines(int userId)
         {
-            var loggedInUserId = Convert.ToInt32(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var machines = await _repo.GetMachines(loggedInUserId);
+            var machines = await _repo.GetMachines(userId);
             var machineDto = _mapper.Map<IEnumerable<MachineDto>>(machines);
             return Ok(machineDto);
         }
@@ -48,7 +49,6 @@ namespace OMPhoenix.API.Controllers
         [HttpPost]
         public IActionResult AddMachine(MachineDto machineDto)
         {
-            machineDto.UserId = Convert.ToInt32(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
             var machine = _mapper.Map<Machine>(machineDto);
             if (machineDto.Id > 0)
             {

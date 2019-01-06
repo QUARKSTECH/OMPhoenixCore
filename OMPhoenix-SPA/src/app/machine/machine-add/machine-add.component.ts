@@ -24,12 +24,16 @@ export class MachineAddComponent implements OnInit {
   machineList: any = [];
   requestEmail: any = {};
   baseurl  =  environment.apiUrl + 'machine/';
+  userId: any;
+  isEditMode: boolean;
 
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
     // this.jobCard = [{Month: 'Jan', Job: 'JB01', Date: '25-11-18'},
     // {Month: 'Feb', Job: 'JB02', Date: '18-11-18'},
     // {Month: 'Mar', Job: 'JB03', Date: '21-11-18'}];
      this.requestModel.serviceType = true;
+     this.userId = this.authService.decodedToken.nameid;
+     this.isEditMode = false;
   }
 
   ngOnInit() {
@@ -37,6 +41,7 @@ export class MachineAddComponent implements OnInit {
   }
 
   addMachine() {
+    this.machine.userId = this.userId;
     this.http.post(this.baseurl, this.machine, httpOptions).subscribe(
       response => {
         if (!this.machine.id) {
@@ -53,7 +58,8 @@ export class MachineAddComponent implements OnInit {
   }
 
   getMachine() {
-    this.http.get(this.baseurl, httpOptions).subscribe(
+    const url = 'getusermachines?userId=' + this.userId;
+    this.http.get(this.baseurl + url, httpOptions).subscribe(
       response => {
         this.machineList = response;
         this.machineList.forEach(element => {
@@ -72,6 +78,7 @@ export class MachineAddComponent implements OnInit {
   }
 
   editMachine(machineobj) {
+    this.isEditMode = true;
     this.machine = machineobj;
     const elmnt = document.getElementById('contentMachine');
     elmnt.scrollIntoView();
@@ -79,6 +86,7 @@ export class MachineAddComponent implements OnInit {
 
   reset() {
     this.machine = {};
+    this.isEditMode = false;
   }
 
   request(type) {

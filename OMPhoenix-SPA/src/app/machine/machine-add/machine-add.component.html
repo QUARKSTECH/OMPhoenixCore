@@ -204,6 +204,7 @@
                       required=""
                       type="text"
                       [(ngModel)]="machine.currentRunningHours"
+                      [readonly]="isEditMode"
                     />
                   </div>
                 </div>
@@ -216,6 +217,7 @@
                       required=""
                       type="text"
                       [(ngModel)]="machine.currentLoadingHours"
+                      [readonly]="isEditMode"
                     />
                   </div>
                 </div>
@@ -257,7 +259,6 @@
                       data-gramm_editor="true"
                       name="msg"
                       placeholder="Message"
-                      required=""
                       [(ngModel)]="machine.message"
                     ></textarea>
                   </div>
