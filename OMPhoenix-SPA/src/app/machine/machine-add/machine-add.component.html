@@ -334,6 +334,7 @@
                   (click)="editMachine(machine)"
                   style="cursor: pointer"
                 ></a>
+                <app-fileupload [machineId]="machine.id" (uploadedJobCardEvent)="uploadedJobCard($event)"></app-fileupload>
               </td>
             </tr>
           </tbody>

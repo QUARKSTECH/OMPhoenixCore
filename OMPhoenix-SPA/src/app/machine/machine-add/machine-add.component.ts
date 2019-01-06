@@ -112,4 +112,8 @@ export class MachineAddComponent implements OnInit {
     );
     this.requestModel = {};
   }
+
+  uploadedJobCard(jobObj) {
+    this.jobCard.push(jobObj);
+  }
 }
