@@ -204,6 +204,7 @@
                       required=""
                       type="text"
                       [(ngModel)]="machine.currentRunningHours"
+                      [readonly]="isEditMode"
                     />
                   </div>
                 </div>
@@ -216,6 +217,7 @@
                       required=""
                       type="text"
                       [(ngModel)]="machine.currentLoadingHours"
+                      [readonly]="isEditMode"
                     />
                   </div>
                 </div>
@@ -230,6 +232,8 @@
                       required=""
                       type="text"
                       [(ngModel)]="machine.lastService"
+                      autocomplete="off"
+                      bsDatepicker [bsConfig]="bsConfig"
                     />
                   </div>
                 </div>
@@ -257,7 +261,6 @@
                       data-gramm_editor="true"
                       name="msg"
                       placeholder="Message"
-                      required=""
                       [(ngModel)]="machine.message"
                     ></textarea>
                   </div>
@@ -333,6 +336,7 @@
                   (click)="editMachine(machine)"
                   style="cursor: pointer"
                 ></a>
+                <app-fileupload [machineId]="machine.id" (uploadedJobCardEvent)="uploadedJobCard($event)"></app-fileupload>
               </td>
             </tr>
           </tbody>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
@@ -57,7 +57,8 @@ import { FileUploadComponent } from './fileUpload/fileUpload.component';
       OwlModule,
       RouterModule.forRoot(appRoutes),
       DataTableModule,
-      FileUploadModule
+      FileUploadModule,
+      BsDatepickerModule.forRoot()
    ],
    providers: [
       AuthService,

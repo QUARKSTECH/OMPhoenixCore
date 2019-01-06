@@ -16,22 +16,61 @@ export class HomeComponent implements OnInit {
   customerOptions: any = [];
   customerImages: any = [];
   clientOptions: any = [];
-  clientImages: any = [];
+  clientImages = [
+    {
+      path: './../assets/images/testimonial.jpg',
+      shortComment: 'Good Service',
+      comments: 'Thanks to all your employees for making such a fine product.',
+      name: 'Raj Kishor',
+      type: 'Customer',
+    },
+    {
+      path: './../assets/images/testimonial.jpg',
+      shortComment: 'Good Service',
+      comments: 'In my professional opinion Quincy Compressor makes one GREAT air compressor.',
+      name: 'Rakesh Sharma',
+      type: 'Customer',
+    },
+    {
+      path: './../assets/images/testimonial.jpg',
+      shortComment: 'Good Service',
+      comments: 'That’s one of the toughest pieces of equipment I’ve ever seen.',
+      name: 'Dheeraj Pandey',
+      type: 'Customer',
+    }
+  ];
+  teamOptions: any = [];
+  teamImages = [
+    {
+      path: '../../assets/images/team1.png',
+      type: 'Business Developer.',
+      name: 'Mr. Rajeev'
+    },
+    {
+      path: '../../assets/images/team2.png',
+      type: 'Tech Support',
+      name: 'Ragini Gupta'
+    },
+    {
+      path: '../../assets/images/team3.png',
+      type: 'Accoutant',
+      name: 'Suresh Mishra'
+    },
+    {
+      path: '../../assets/images/team4.png',
+      type: 'Senior Executive',
+      name: 'Manjeet Kaur'
+    }
+];
   @ViewChild('owlElement') owlElement: OwlCarousel;
+  @ViewChild('owlClientElement') owlClientElement: OwlCarousel;
+  @ViewChild('owlTeamElement') owlTeamElement: OwlCarousel;
 
   constructor() {
-    this.values = [{Id: 1, Value: 'USA'}, {Id: 2, Value: 'Canada'}, {Id: 3, Value: 'Uk'}];
-    this.model.location = 1;
-    this.model.service = 3;
-    this.mySlideImages = [1, 2, 3].map((i) => '../assets/images/slider/' + i + '.jpg');
-    this.mySlideOptions = {items: 1, dots: true, navigation: false};
-    // this.myCarouselOptions = {items: 3, dots: true, navigation: false};
-    // tslint:disable-next-line:max-line-length
-    this.customerImages =  ['../../assets/images/rice mills.jpg', '../../assets/images/auto-parts.jpg', '../../assets/images/steel ind.jpg',
-  '../../assets/images/MEDICAL INDUSTRIES.jpg', '../../assets/images/food INDUSTRIES.jpg'];
-  this.customerOptions = {items: 1, dots: true, nav: true};
-  this.clientOptions = {items: 1, dots: true, navigation: true};
-  this.clientImages = ['./../assets/images/testimonial.jpg'];
+    this.mySlideImages = [1, 2, 3].map((i) => '../assets/images/' + 'NewSlider' + i + '.jpg');
+    this.mySlideOptions = {items: 1, dots: true, loop: true, autoplay: true, margin : 40};
+    this.clientOptions = {items: 3, dots: true, loop: true, autoplay: true, margin : 40};
+    this.teamOptions = {items: 3, loop: true, autoplay: true};
   }
 
   ngOnInit() {
