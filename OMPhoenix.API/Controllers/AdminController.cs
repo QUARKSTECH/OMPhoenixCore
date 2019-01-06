@@ -54,6 +54,15 @@ namespace OMPhoenix.API.Controllers
             var user = _mapper.Map<User>(userDto);
             _repo.Edit(user);
             return Ok(userDto);
+        }
+
+        [Route("getusermachines")]
+        [HttpGet]
+        public async Task<IActionResult> GetUserMachines(int userId)
+        {
+            var userMachines = await _repo.GetMachines(userId);
+            var machinesDto = _mapper.Map<IEnumerable<MachineDto>>(userMachines);
+            return Ok(machinesDto);
         }        
     }
 }

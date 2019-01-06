@@ -30,7 +30,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllMachines();
+    // this.getAllMachines();
     this.getAllUsers();
   }
 
@@ -57,6 +57,29 @@ export class AdminComponent implements OnInit {
     this.http.get(this.baseurl + 'getusers', httpOptions).subscribe(
       response => {
         this.userList = response;
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
+  getUserMachines(userId) {
+    const url = 'getusermachines?userId=' + userId;
+    this.http.get(this.baseurl + url, httpOptions).subscribe(
+      response => {
+        this.machineList = response;
+        if (this.machineList.length === 0) {
+          this.alertify.warning('No machines available for this company');
+          this.jobCard = [];
+        }
+        this.machineList.forEach(element => {
+          if (element.jobCards.length > 0 ) {
+            element.jobCards.forEach(subElement => {
+              this.jobCard.push(subElement);
+            });
+          }
+        });
       },
       error => {
         this.alertify.error(error);
