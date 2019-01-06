@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AlertifyService } from 'src/app/_service/alertify.service';
 import { AuthService } from 'src/app/_service/auth.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,6 +27,7 @@ export class MachineAddComponent implements OnInit {
   baseurl  =  environment.apiUrl + 'machine/';
   userId: any;
   isEditMode: boolean;
+  bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
     // this.jobCard = [{Month: 'Jan', Job: 'JB01', Date: '25-11-18'},
@@ -38,6 +40,10 @@ export class MachineAddComponent implements OnInit {
 
   ngOnInit() {
     this.getMachine();
+    this.bsConfig = {
+      // containerClass: 'theme-red',
+      dateInputFormat: 'YYYY/MM/DD'// 'DD/MM/YYYY'
+    };
   }
 
   addMachine() {
