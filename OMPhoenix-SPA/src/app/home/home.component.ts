@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('owlTeamElement') owlTeamElement: OwlCarousel;
 
   constructor() {
-    this.mySlideImages = [1, 2, 3].map((i) => '../assets/images/slider/' + i + '.jpg');
+    this.mySlideImages = [1, 2, 3].map((i) => '../assets/images/' + 'NewSlider' + i + '.jpg');
     this.mySlideOptions = {items: 1, dots: true, loop: true, autoplay: true, margin : 40};
     this.clientOptions = {items: 3, dots: true, loop: true, autoplay: true, margin : 40};
     this.teamOptions = {items: 3, loop: true, autoplay: true};
