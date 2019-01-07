@@ -31,7 +31,7 @@ import { ErrorInterceptorProvider } from './_service/error.interceptor';
 import { FileUploadComponent } from './fileUpload/fileUpload.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
-
+import { IndoFork } from './IndoFork/IndoFork.component';
 
 
 @NgModule({
