@@ -6,6 +6,8 @@ import { ContactComponent } from './contact/contact.component';
 import { MachineAddComponent } from './machine/machine-add/machine-add.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { AdminComponent } from './admin/admin.component';
+import { AboutComponent } from './about/about.component';
+import { WhyUsComponent } from './whyUs/whyUs.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -14,5 +16,7 @@ export const appRoutes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'machineadd', component: MachineAddComponent, canActivate: [AuthGuard]},
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+    { path: 'WhyUs', component: WhyUsComponent },
+    { path: 'about', component: AboutComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
