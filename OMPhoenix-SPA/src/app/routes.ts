@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
 
+
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'service', component: ServicesOfferComponent },

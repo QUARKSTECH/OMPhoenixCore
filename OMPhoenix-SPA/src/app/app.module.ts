@@ -52,7 +52,8 @@ import { WhyUsComponent } from './whyUs/whyUs.component';
       AdminComponent,
       FileUploadComponent,
       WhyUsComponent,
-      AboutComponent
+      AboutComponent,
+      IndoForkComponent,
    ],
    imports: [
       BrowserModule,
