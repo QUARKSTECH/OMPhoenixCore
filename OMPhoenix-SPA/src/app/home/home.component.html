@@ -259,52 +259,20 @@
         <div class="client-comment">
           <div class="client-comment-info">
             <!-- Single client -->
-            <div class="client-comments-details">
-              <owl-carousel
-                #owlElementCustomers
+            <owl-carousel
+                #owlClientElement
                 [options]="clientOptions"
                 [items]="clientImages"
                 [carouselClasses]="['owl-theme', 'row', 'sliding']"
               >
-                <div
-                  class="item"
-                  *ngFor="let image of clientImages; let i = index"
-                >
-                  <div class="news-img"><img src="{{image}}" /></div>
-                </div>
-              </owl-carousel>
-              <p>
-                Thanks to all your employees for making such a fine product.
-              </p>
-              <h3>- Raj Kishor</h3>
+            <div class="client-comments-details" *ngFor="let image of clientImages; let i = index">
+                  <div class="news-img"><img src="{{image.path}}" /></div>
+                  <p>
+                    {{image.comments}}
+                  </p>
+                  <h3>- {{image.name}}</h3>
             </div>
-            
-              <div class="client-comments-details">
-                <img
-                  src="../../assets/images/testimonial.jpg"
-                  alt="Testimonial Photo"
-                  alt="Testimonial Photo"
-                />
-                <p>
-                  In my professional opinion Quincy Compressor makes one GREAT air
-                  compressor.
-                </p>
-                <h3>- Rakesh Sharma</h3>
-              </div>
-            -->
-           
-              <div class="client-comments-details">
-                <img
-                  src="../../assets/images/testimonial.jpg"
-                  alt="Testimonial Photo"
-                  alt="Testimonial Photo"
-                />
-                <p>
-                  That’s one of the toughest pieces of equipment I’ve ever seen.
-                </p>
-                <h3>- Dheeraj Pandey</h3>
-              </div>
-         
+          </owl-carousel>
           </div>
         </div>
       </div>
@@ -350,54 +318,26 @@
       <h2 class="text-center">Our Team</h2>
       <br /><br /><br />
       <div class="col-md-12">
-      <div class="col-md-3 col-sm-6 my_client">
+          <owl-carousel
+          #owlClientElement
+          [options]="teamOptions"
+          [items]="teamImages"
+          [carouselClasses]="['owl-theme', 'row', 'sliding']"
+          >
+      <div class="col-md-3 col-sm-6 my_client" *ngFor="let image of teamImages; let i = index">
         <!-- single team -->
         <div class="team-info">
           <div class="member-img">
-            <img src="../../assets/images/team1.png" alt="team members" />
+            <img src="{{image.path}}" alt="team members" />
           </div>
           <div class="member-info">
-            <h3>Mr. Rajeev</h3>
-            <span>Business Developer.</span>
+            <h3>{{image.name}}</h3>
+            <span>{{image.type}}</span>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6 my_client">
-        <!-- single team -->
-        <div class="team-info">
-          <div class="member-img">
-            <img src="../../assets/images/team2.png" alt="team members"  />
-          </div>
-          <div class="member-info">
-            <h3>Ragini Gupta</h3>
-            <span>Tech Support</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 my_client">
-        <!-- single team -->
-        <div class="team-info">
-          <div class="member-img">
-            <img src="../../assets/images/team3.png" alt="team members"  />
-          </div>
-          <div class="member-info">
-            <h3>Suresh Mishra</h3>
-            <span>Accoutant</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 my_client">
-        <!-- single team -->
-        <div class="team-info">
-          <div class="member-img">
-            <img src="../../assets/images/team4.png" alt="team members"  />
-          </div>
-          <div class="member-info">
-            <h3>Manjeet Kaur</h3>
-            <span>Senior Executive</span>
-          </div>
-        </div>
-      </div>
+    </owl-carousel>
+      
       </div>
  
     </div>

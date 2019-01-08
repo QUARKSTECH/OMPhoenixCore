@@ -27,3 +27,6 @@ background-color:#423e42;
 .col-md-3.col-sm-6.my_client {
     float: left;
 }
+.my_client {
+    max-width: 80%;
+}
