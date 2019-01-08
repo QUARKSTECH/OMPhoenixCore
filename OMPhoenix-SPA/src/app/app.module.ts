@@ -29,6 +29,10 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { ErrorInterceptorProvider } from './_service/error.interceptor';
 import { FileUploadComponent } from './fileUpload/fileUpload.component';
+import { AboutComponent } from './about/about.component';
+import { WhyUsComponent } from './whyUs/whyUs.component';
+
+
 
 @NgModule({
    declarations: [
@@ -46,7 +50,9 @@ import { FileUploadComponent } from './fileUpload/fileUpload.component';
       ParkerComponent,
       MachineAddComponent,
       AdminComponent,
-      FileUploadComponent
+      FileUploadComponent,
+      WhyUsComponent,
+      AboutComponent
    ],
    imports: [
       BrowserModule,
