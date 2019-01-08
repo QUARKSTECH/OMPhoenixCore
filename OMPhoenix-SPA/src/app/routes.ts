@@ -8,6 +8,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
+import { IndoForkComponent } from './product/indoFork/indoFork.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -18,5 +19,6 @@ export const appRoutes: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
     { path: 'WhyUs', component: WhyUsComponent },
     { path: 'about', component: AboutComponent },
-    { path: '**', redirectTo: 'home', pathMatch: 'full'}
+    { path: 'IndoFork', component: IndoForkComponent },
+     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
