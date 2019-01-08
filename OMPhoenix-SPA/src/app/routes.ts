@@ -18,6 +18,5 @@ export const appRoutes: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
     { path: 'WhyUs', component: WhyUsComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'IndoFork', component: IndoForkComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
