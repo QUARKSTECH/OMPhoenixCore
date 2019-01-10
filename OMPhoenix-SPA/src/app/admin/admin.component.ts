@@ -4,11 +4,6 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AlertifyService } from '../_service/alertify.service';
 import { environment } from 'src/environments/environment';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -35,7 +30,7 @@ export class AdminComponent implements OnInit {
   }
 
   getAllMachines() {
-    this.http.get(this.baseurl, httpOptions).subscribe(
+    this.http.get(this.baseurl).subscribe(
       response => {
         this.machineList = response;
         this.machineList.forEach(element => {
@@ -54,7 +49,7 @@ export class AdminComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.http.get(this.baseurl + 'getusers', httpOptions).subscribe(
+    this.http.get(this.baseurl + 'getusers').subscribe(
       response => {
         this.userList = response;
       },
@@ -66,7 +61,7 @@ export class AdminComponent implements OnInit {
 
   getUserMachines(userId) {
     const url = 'getusermachines?userId=' + userId;
-    this.http.get(this.baseurl + url, httpOptions).subscribe(
+    this.http.get(this.baseurl + url).subscribe(
       response => {
         this.machineList = response;
         if (this.machineList.length === 0) {
@@ -88,7 +83,7 @@ export class AdminComponent implements OnInit {
   }
 
   saveEditedMachine() {
-    this.http.post(this.baseurl, this.machine, httpOptions).subscribe(
+    this.http.post(this.baseurl, this.machine).subscribe(
       response => {
         console.log(this.machine);
         this.reset();
@@ -101,7 +96,7 @@ export class AdminComponent implements OnInit {
   }
 
   saveEditedUser() {
-    this.http.post(this.baseurl + 'updateusers', this.user, httpOptions).subscribe(
+    this.http.post(this.baseurl + 'updateusers', this.user).subscribe(
       response => {
         console.log(this.user);
         this.reset();

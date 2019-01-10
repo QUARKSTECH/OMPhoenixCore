@@ -7,11 +7,6 @@ import { AlertifyService } from 'src/app/_service/alertify.service';
 import { AuthService } from 'src/app/_service/auth.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
 @Component({
   selector: 'app-machine-add',
   templateUrl: './machine-add.component.html',
@@ -48,7 +43,7 @@ export class MachineAddComponent implements OnInit {
 
   addMachine() {
     this.machine.userId = this.userId;
-    this.http.post(this.baseurl, this.machine, httpOptions).subscribe(
+    this.http.post(this.baseurl, this.machine).subscribe(
       response => {
         if (!this.machine.id) {
           this.machineList.push(response);
@@ -65,7 +60,7 @@ export class MachineAddComponent implements OnInit {
 
   getMachine() {
     const url = 'getusermachines?userId=' + this.userId;
-    this.http.get(this.baseurl + url, httpOptions).subscribe(
+    this.http.get(this.baseurl + url).subscribe(
       response => {
         this.machineList = response;
         this.machineList.forEach(element => {
@@ -104,7 +99,7 @@ export class MachineAddComponent implements OnInit {
         this.requestModel.serviceCategory = 'Breakdown Service';
       }
     }
-    this.http.post(this.baseurl + 'request/', this.requestModel, httpOptions).subscribe(
+    this.http.post(this.baseurl + 'request/', this.requestModel).subscribe(
       response => {
         if (response) {
           this.alertify.success('Request mail has been sent successfully');
