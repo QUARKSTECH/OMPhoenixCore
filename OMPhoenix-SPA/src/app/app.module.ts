@@ -20,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicesOfferComponent } from './servicesOffer/servicesOffer.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
-import { IndoForkComponent } from './product/indoFork/indoFork.component';
 import { MarkAirComponent } from './product/markAir/markAir.component';
 import { ParkerComponent } from './product/parker/parker.component';
 import { MachineAddComponent } from './machine/machine-add/machine-add.component';
@@ -31,6 +30,7 @@ import { ErrorInterceptorProvider } from './_service/error.interceptor';
 import { FileUploadComponent } from './fileUpload/fileUpload.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
+import { IndoComponent } from './indo/indo.component';
 
 
 
@@ -45,7 +45,6 @@ import { WhyUsComponent } from './whyUs/whyUs.component';
       ServicesOfferComponent,
       ProductComponent,
       ContactComponent,
-      IndoForkComponent,
       MarkAirComponent,
       ParkerComponent,
       MachineAddComponent,
@@ -53,7 +52,7 @@ import { WhyUsComponent } from './whyUs/whyUs.component';
       FileUploadComponent,
       WhyUsComponent,
       AboutComponent,
-      IndoForkComponent,
+      IndoComponent
    ],
    imports: [
       BrowserModule,
