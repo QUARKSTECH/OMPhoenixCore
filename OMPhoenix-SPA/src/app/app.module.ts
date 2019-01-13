@@ -32,6 +32,7 @@ import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
 import { IndoComponent } from './indo/indo.component';
 import { MarkComponent } from './mark/mark.component';
+import { ParkersComponent } from './parkers/parkers.component';
 
 
 
@@ -54,7 +55,9 @@ import { MarkComponent } from './mark/mark.component';
       WhyUsComponent,
       AboutComponent,
       IndoComponent,
-      MarkComponent
+      MarkComponent,
+      ParkerComponent,
+      ParkersComponent
    ],
    imports: [
       BrowserModule,

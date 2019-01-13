@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
 import { IndoComponent} from './indo/indo.component';
 import { MarkComponent} from './mark/mark.component';
+import { ParkersComponent} from './parkers/parkers.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -22,5 +23,6 @@ export const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'indo', component: IndoComponent },
     { path: 'mark', component: MarkComponent },
+    { path: 'parkers', component: ParkersComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
