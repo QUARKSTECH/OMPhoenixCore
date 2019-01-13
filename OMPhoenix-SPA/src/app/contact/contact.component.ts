@@ -81,7 +81,7 @@ export class ContactComponent implements OnInit {
   addEnquiry() {
     this.http.post(this.baseurl, this.contact).subscribe(
       response => {
-        this.alertify.success('Machine updated successfully');
+        this.alertify.success('Enquiry saved successfully');
         this.contact = {};
       },
       error => {
