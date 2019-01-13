@@ -63,13 +63,13 @@ export class MachineAddComponent implements OnInit {
     this.http.get(this.baseurl + url).subscribe(
       response => {
         this.machineList = response;
-        this.machineList.forEach(element => {
-          if (element.jobCards.length > 0 ) {
-            element.jobCards.forEach(subElement => {
-              this.jobCard.push(subElement);
-            });
-          }
-        });
+        // this.machineList.forEach(element => {
+        //   if (element.jobCards.length > 0 ) {
+        //     element.jobCards.forEach(subElement => {
+        //       this.jobCard.push(subElement);
+        //     });
+        //   }
+        // });
         console.log(this.authService.decodedToken);
       },
       error => {
@@ -116,5 +116,16 @@ export class MachineAddComponent implements OnInit {
 
   uploadedJobCard(jobObj) {
     this.jobCard.push(jobObj);
+  }
+
+  getMachineJobCard(machineId) {
+    this.jobCard = [];
+    this.machineList.forEach(element => {
+      if (element.jobCards.length > 0 && element.id === machineId) {
+        element.jobCards.forEach(subElement => {
+          this.jobCard.push(subElement);
+        });
+      }
+    });
   }
 }

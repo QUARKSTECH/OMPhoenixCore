@@ -337,6 +337,7 @@
                   style="cursor: pointer"
                 ></a>
                 <app-fileupload [machineId]="machine.id" (uploadedJobCardEvent)="uploadedJobCard($event)"></app-fileupload>
+                <a class="fa fa-refresh fa-spin" (click)="getMachineJobCard(machine.id)" style="cursor: pointer; font-size:14px"></a>
               </td>
             </tr>
           </tbody>
