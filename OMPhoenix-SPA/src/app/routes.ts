@@ -11,6 +11,7 @@ import { WhyUsComponent } from './whyUs/whyUs.component';
 import { IndoComponent} from './indo/indo.component';
 import { MarkComponent} from './mark/mark.component';
 import { ParkersComponent} from './parkers/parkers.component';
+import { AirnetComponent } from './airnet/airnet.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -24,5 +25,6 @@ export const appRoutes: Routes = [
     { path: 'indo', component: IndoComponent },
     { path: 'mark', component: MarkComponent },
     { path: 'parkers', component: ParkersComponent },
+    { path: 'airnet', component: AirnetComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

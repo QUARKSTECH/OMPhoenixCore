@@ -33,6 +33,7 @@ import { WhyUsComponent } from './whyUs/whyUs.component';
 import { IndoComponent } from './indo/indo.component';
 import { MarkComponent } from './mark/mark.component';
 import { ParkersComponent } from './parkers/parkers.component';
+import { AirnetComponent } from './airnet/airnet.component';
 
 
 
@@ -57,7 +58,8 @@ import { ParkersComponent } from './parkers/parkers.component';
       IndoComponent,
       MarkComponent,
       ParkerComponent,
-      ParkersComponent
+      ParkersComponent,
+      AirnetComponent
    ],
    imports: [
       BrowserModule,
