@@ -20,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicesOfferComponent } from './servicesOffer/servicesOffer.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
-import { IndoForkComponent } from './product/indoFork/indoFork.component';
 import { MarkAirComponent } from './product/markAir/markAir.component';
 import { ParkerComponent } from './product/parker/parker.component';
 import { MachineAddComponent } from './machine/machine-add/machine-add.component';
@@ -32,6 +31,9 @@ import { FileUploadComponent } from './fileUpload/fileUpload.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { IndoComponent } from './indo/indo.component';
+import { MarkComponent } from './mark/mark.component';
+import { ParkersComponent } from './parkers/parkers.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -48,7 +50,6 @@ export function tokenGetter() {
       ServicesOfferComponent,
       ProductComponent,
       ContactComponent,
-      IndoForkComponent,
       MarkAirComponent,
       ParkerComponent,
       MachineAddComponent,
@@ -56,7 +57,10 @@ export function tokenGetter() {
       FileUploadComponent,
       WhyUsComponent,
       AboutComponent,
-      IndoForkComponent,
+      IndoComponent,
+      MarkComponent,
+      ParkerComponent,
+      ParkersComponent
    ],
    imports: [
       BrowserModule,
