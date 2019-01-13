@@ -65,5 +65,11 @@ namespace OMPhoenix.API.Data
             var jobCard = await _context.JobCards.FirstOrDefaultAsync(m => m.Id == Id);
             return jobCard;
         }
+
+        public async Task<IEnumerable<Enquiry>> GetAllEnquiries()
+        {
+            var allEnquiries = await _context.Enquiries.ToListAsync();
+            return allEnquiries;
+        }
     }
 }

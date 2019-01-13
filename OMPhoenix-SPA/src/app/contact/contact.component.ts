@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { } from '@types/googlemaps';
+// import { } from '@types/googlemaps';
+import { HttpClient } from '@angular/common/http';
+import { AlertifyService } from '../_service/alertify.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -13,23 +16,27 @@ export class ContactComponent implements OnInit {
   latitude: any;
   longitude: any;
   marker: any;
+  contact: any = {};
+  baseurl  =  environment.apiUrl + 'enquiry/';
 
-  constructor() { }
+  constructor(private http: HttpClient, private alertify: AlertifyService) {
+
+  }
 
   ngOnInit() {
-    const mapProp = {
-      center: new google.maps.LatLng(22.7908, 86.1661),
-      zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    // const mapProp = {
+    //   center: new google.maps.LatLng(22.7908, 86.1661),
+    //   zoom: 14,
+    //   mapTypeId: google.maps.MapTypeId.ROADMAP
+    // };
+    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
 
-    this.marker = new google.maps.Marker({
-      position: new google.maps.LatLng(22.7908, 86.1661),
-    animation: google.maps.Animation.BOUNCE,
-      icon: '../../assets/images/map.png'
-    });
-    this.marker.setMap(this.map);
+    // this.marker = new google.maps.Marker({
+    //   position: new google.maps.LatLng(22.7908, 86.1661),
+    // animation: google.maps.Animation.BOUNCE,
+    //   icon: '../../assets/images/map.png'
+    // });
+    // this.marker.setMap(this.map);
   }
 
   // setMapType(mapTypeId: string) {
@@ -71,6 +78,31 @@ export class ContactComponent implements OnInit {
 
   }
 
+  addEnquiry() {
+    this.http.post(this.baseurl, this.contact).subscribe(
+      response => {
+        this.alertify.success('Machine updated successfully');
+        this.contact = {};
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
+  getEnquiries() {
+    this.http.get(this.baseurl).subscribe(
+      response => {
+        this.contact = response;
+        if (response) {
+          this.alertify.success('Enquiries loaded successfully');
+        }
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
 
 //   myMap() {
 //     var myCenter = new google.maps.LatLng(22.7908,86.1661);

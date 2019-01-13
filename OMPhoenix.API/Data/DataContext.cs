@@ -10,5 +10,6 @@ namespace OMPhoenix.API.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Machine> Machines { get; set; }
         public DbSet<JobCard> JobCards { get; set; }
+        public DbSet<Enquiry> Enquiries { get; set; }
     }
 }

@@ -15,5 +15,6 @@ namespace OMPhoenix.API.Data
          Task<IEnumerable<Machine>> GetAllMachines();
          Task<IEnumerable<User>> GetAllUsers();
          Task<JobCard> GetJobCard(int Id);
+         Task<IEnumerable<Enquiry>> GetAllEnquiries();
     }
 }

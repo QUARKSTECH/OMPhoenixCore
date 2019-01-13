@@ -26,32 +26,32 @@
                       <h2>contact info</h2>
                       <!-- contact form -->
                       <div class="contact-form">
-                            <form id="form">
+                            <form id="form" #contactForm="ngForm" (ngSubmit)="addEnquiry()">
                 
                                     <p id="returnmessage"></p>
                               <div class="row">
                                   <div class="col-sm-6 col-md-6">
                                       <div class="form-content">
-                                          <input name="name"  id="name"  placeholder="Enter Name" class="form-control" required="" type="text">
+                                          <input name="name"  id="name" [(ngModel)]="contact.name" placeholder="Enter Name" class="form-control" required="" type="text">
                                       </div>
                                   </div>
                                   <div class="col-sm-6 col-md-6">
                                       <div class="form-content">
-                                          <input name="email"   id="email"  placeholder="Enter Email" class="form-control" required="" type="email">
+                                          <input name="email"   id="email" [(ngModel)]="contact.email" placeholder="Enter Email" class="form-control" required="" type="email">
                                       </div>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col-sm-12 col-md-12">
                                       <div class="form-content">
-                                          <input name="Number" id="contact" placeholder="Your Mobile Number" class="form-control" type="text">
+                                          <input name="Number" id="contact" [(ngModel)]="contact.mobile" placeholder="Your Mobile Number" class="form-control" type="text">
                                       </div>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-12">
                                       <div class="form-message">
-                                          <textarea class="field-element form-control" data-gramm="true" spellcheck="false" data-gramm_editor="true" name="msg"   id="message"  placeholder="Message" required=""></textarea>
+                                          <textarea class="field-element form-control" data-gramm="true" spellcheck="false" data-gramm_editor="true" name="msg"   id="message" [(ngModel)]="contact.message" placeholder="Message" required=""></textarea>
                                       </div>
                                       <div id=loader style="display: none">
                                             <img id='loadersign' src="../../assets/images/1.gif" />
