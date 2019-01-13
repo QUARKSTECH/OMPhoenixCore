@@ -34,6 +34,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { IndoComponent } from './indo/indo.component';
 import { MarkComponent } from './mark/mark.component';
 import { ParkersComponent } from './parkers/parkers.component';
+import { AirnetComponent } from './airnet/airnet.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -60,7 +61,8 @@ export function tokenGetter() {
       IndoComponent,
       MarkComponent,
       ParkerComponent,
-      ParkersComponent
+      ParkersComponent,
+      AirnetComponent
    ],
    imports: [
       BrowserModule,

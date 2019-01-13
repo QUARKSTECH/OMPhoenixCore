@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { IndoForkComponent } from './indoFork.component';
+import { AirnetComponent } from './airnet.component';
 
-describe('IndoForkComponent', () => {
-  let component: IndoForkComponent;
-  let fixture: ComponentFixture<IndoForkComponent>;
+describe('AirnetComponent', () => {
+  let component: AirnetComponent;
+  let fixture: ComponentFixture<AirnetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IndoForkComponent ]
+      declarations: [ AirnetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IndoForkComponent);
+    fixture = TestBed.createComponent(AirnetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

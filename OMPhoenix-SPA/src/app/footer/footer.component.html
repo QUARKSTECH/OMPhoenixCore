@@ -19,9 +19,9 @@
           <div class="footer-widgets">
             <h2>Quick Links</h2>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="why.html">Why Us</a></li>
+                <li><a [routerLink]="['/about']">About Us</a></li>
+                <li><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
+                <li> <a [routerLink]="['/WhyUs']">Why Us</a></li>
             </ul>
           </div>
         </div>
@@ -30,9 +30,10 @@
           <div class="footer-widgets">
             <h2>Products</h2>
             <ul>
-              <li><a href="indofork.html">Indo Fork</a></li>
-              <li><a href="mark.html">Mark</a></li>
-              <li><a href="parker.html">Parker</a></li>
+                <li><a [routerLink]="['/indo']">IndoFork </a></li>
+                <li><a [routerLink]="['/mark']" >Mark Compressor</a></li>
+                <li><a [routerLink]="['/parkers']">Parker </a></li>
+                <li><a [routerLink]="['/airnet']">Airnet </a></li>
             </ul>
           </div>
         </div>
