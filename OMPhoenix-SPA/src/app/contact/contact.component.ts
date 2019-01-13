@@ -90,20 +90,6 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  getEnquiries() {
-    this.http.get(this.baseurl).subscribe(
-      response => {
-        this.contact = response;
-        if (response) {
-          this.alertify.success('Enquiries loaded successfully');
-        }
-      },
-      error => {
-        this.alertify.error(error);
-      }
-    );
-  }
-
 //   myMap() {
 //     var myCenter = new google.maps.LatLng(22.7908,86.1661);
 // 	 var mapCanvas = document.getElementById("map");

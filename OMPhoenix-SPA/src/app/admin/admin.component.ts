@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   isEditUser: any = false;
   jobCard: any = [];
   jobCardResponse: any = [];
+  enquiries: any = [];
 
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
 
@@ -28,6 +29,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     // this.getAllMachines();
     this.getAllUsers();
+    this.getEnquiries();
   }
 
   getAllMachines() {
@@ -142,5 +144,19 @@ export class AdminComponent implements OnInit {
 
   uploadedJobCard(jobObj) {
     this.jobCard.push(jobObj);
+  }
+
+  getEnquiries() {
+    this.http.get(environment.apiUrl + 'enquiry').subscribe(
+      response => {
+        this.enquiries = response;
+        if (response) {
+          this.alertify.success('Enquiries loaded successfully');
+        }
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
   }
 }
