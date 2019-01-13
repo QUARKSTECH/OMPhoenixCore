@@ -31,6 +31,7 @@ import { FileUploadComponent } from './fileUpload/fileUpload.component';
 import { AboutComponent } from './about/about.component';
 import { WhyUsComponent } from './whyUs/whyUs.component';
 import { IndoComponent } from './indo/indo.component';
+import { MarkComponent } from './mark/mark.component';
 
 
 
@@ -52,7 +53,8 @@ import { IndoComponent } from './indo/indo.component';
       FileUploadComponent,
       WhyUsComponent,
       AboutComponent,
-      IndoComponent
+      IndoComponent,
+      MarkComponent
    ],
    imports: [
       BrowserModule,
