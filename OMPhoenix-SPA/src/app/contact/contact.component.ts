@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  @ViewChild('gmap') gmapElement: any;
-  map: google.maps.Map;
+  // @ViewChild('gmap') gmapElement: any;
+  // map: google.maps.Map;
 
   latitude: any;
   longitude: any;
@@ -61,22 +61,22 @@ export class ContactComponent implements OnInit {
   //   });
   // }
 
-  simpleMarkerHandler() {
-    alert('Simple Component\'s function...');
-  }
+  // simpleMarkerHandler() {
+  //   alert('Simple Component\'s function...');
+  // }
 
-  markerHandler(marker: google.maps.Marker) {
-    alert('Marker\'s Title: ' + marker.getTitle());
-  }
+  // markerHandler(marker: google.maps.Marker) {
+  //   alert('Marker\'s Title: ' + marker.getTitle());
+  // }
 
-  showCustomMarker() {
+  // showCustomMarker() {
 
 
-    this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
+  //    this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
 
-    const location = new google.maps.LatLng(this.latitude, this.longitude);
+  //    const location = new google.maps.LatLng(this.latitude, this.longitude);
 
-  }
+  // }
 
   addEnquiry() {
     this.http.post(this.baseurl, this.contact).subscribe(
