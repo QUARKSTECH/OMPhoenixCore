@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
   user: any = {};
   isEditUser: any = false;
   jobCard: any = [];
+  jobCardResponse: any = [];
 
   constructor(private http: HttpClient, private alertify: AlertifyService, public authService: AuthService) {
 
@@ -68,18 +69,28 @@ export class AdminComponent implements OnInit {
           this.alertify.warning('No machines available for this company');
           this.jobCard = [];
         }
-        this.machineList.forEach(element => {
-          if (element.jobCards.length > 0 ) {
-            element.jobCards.forEach(subElement => {
-              this.jobCard.push(subElement);
-            });
-          }
-        });
+        // this.machineList.forEach(element => {
+        //   if (element.jobCards.length > 0 ) {
+        //     element.jobCards.forEach(subElement => {
+        //       this.jobCard.push(subElement);
+        //     });
+        //   }
+        // });
       },
       error => {
         this.alertify.error(error);
       }
     );
+  }
+
+  getMachineJobCard(machineId) {
+    this.machineList.forEach(element => {
+      if (element.jobCards.length > 0 && element.id === machineId) {
+        element.jobCards.forEach(subElement => {
+          this.jobCard.push(subElement);
+        });
+      }
+    });
   }
 
   saveEditedMachine() {
