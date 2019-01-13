@@ -137,8 +137,8 @@
           </table>
         </div>
       </div>
-      <div class="col-sm-6">
-          <div class="contact-form-area" id="adminUserAdd">
+      <div class="col-sm-6" id="adminUserAdd">
+          <div class="contact-form-area" [hidden]=!isEditUser>
               <h2>Update Company</h2>
               <!-- contact form -->
               <div class="contact-form">
@@ -215,9 +215,9 @@
               
             </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6" id="adminmachineAdd">
         <!-- contact form content -->
-        <div class="contact-form-area" id="adminmachineAdd">
+        <div class="contact-form-area" [hidden]=!isEdit>
           <h2>Update machine</h2>
           <!-- contact form -->
           <div class="contact-form">
