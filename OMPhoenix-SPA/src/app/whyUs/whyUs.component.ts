@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-whyUs',
+  selector: 'app-whyus',
   templateUrl: './whyUs.component.html',
   styleUrls: ['./whyUs.component.css']
 })
