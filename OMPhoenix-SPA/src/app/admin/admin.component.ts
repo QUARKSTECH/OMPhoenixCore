@@ -94,6 +94,9 @@ export class AdminComponent implements OnInit {
         });
       }
     });
+    if (this.jobCard.length === 0) {
+      this.alertify.warning('No job cards available for this machine');
+    }
   }
 
   saveEditedMachine() {
@@ -151,7 +154,7 @@ export class AdminComponent implements OnInit {
     this.http.get(environment.apiUrl + 'enquiry').subscribe(
       response => {
         this.enquiries = response;
-        if (response) {
+        if (this.enquiries.length) {
           this.alertify.success('Enquiries loaded successfully');
         }
       },

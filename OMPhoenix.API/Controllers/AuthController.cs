@@ -57,7 +57,8 @@ namespace OMPhoenix.API.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.UserName),
-                new Claim(ClaimTypes.GivenName, userFromRepo.CompanyName)
+                new Claim(ClaimTypes.GivenName, userFromRepo.CompanyName),
+                new Claim(ClaimTypes.Role, userForLoginDto.UserName.ToLower() == "admin" ? "admin" : "user")
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));
