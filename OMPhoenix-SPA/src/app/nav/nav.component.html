@@ -31,7 +31,7 @@
               name="username"
               placeholder="Username"
               required
-              [(ngModel)]="model.username"
+              [(ngModel)]="model.username" style="margin-bottom: 14px;"
             />
             <input
               class="form-control mr-sm-2"
@@ -39,12 +39,12 @@
               name="password"
               placeholder="Password"
               required
-              [(ngModel)]="model.password"
+              [(ngModel)]="model.password" style="margin-bottom: 14px;"
             />
-            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"style="background-color: #ffbd1f;
-            color: black;" >Login</button>
-            <app-register *ngIf="!loggedIn()" style="background-color: #b84b17;
-            color: yellow;"></app-register>
+            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"
+            ><img src="../../assets/images/login.png" alt="" style="width:100px; "/></button>
+            <app-register *ngIf="!loggedIn()" class="register">
+              </app-register>
           </form>
           <div *ngIf="loggedIn()" class="dropdown text-right" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>

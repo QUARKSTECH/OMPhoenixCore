@@ -37,7 +37,13 @@
 .dropdown-menu {
     margin-left: 72%;
 }
-
+.register
+{color: white;
+    padding: 0px;
+    /* margin-right: 1px; */
+    margin-left: 21px;
+    font-size: 21px;
+    border: 2px solid; background-color: yellow;}
 .customContainer {
     padding-left: 2%;
 }
