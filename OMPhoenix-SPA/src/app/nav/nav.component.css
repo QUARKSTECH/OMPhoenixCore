@@ -10,7 +10,7 @@
     z-index:9999;
 }
 .menu{
-    border: 2px solid;
+    padding: 7px 10px;
     text-align: -webkit-center;
     font-style: bold;
     font-weight: bolder;
