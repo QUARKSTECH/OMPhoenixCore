@@ -127,5 +127,8 @@ export class MachineAddComponent implements OnInit {
         });
       }
     });
+    if (this.jobCard.length === 0) {
+      this.alertify.warning('No job cards available for this machine');
+    }
   }
 }
