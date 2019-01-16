@@ -31,7 +31,7 @@
               name="username"
               placeholder="Username"
               required
-              [(ngModel)]="model.username"
+              [(ngModel)]="model.username" style="margin-bottom: 14px;"
             />
             <input
               class="form-control mr-sm-2"
@@ -39,12 +39,12 @@
               name="password"
               placeholder="Password"
               required
-              [(ngModel)]="model.password"
+              [(ngModel)]="model.password" style="margin-bottom: 14px;"
             />
-            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"style="background-color: #ffbd1f;
-            color: black;" >Login</button>
-            <app-register *ngIf="!loggedIn()" style="background-color: #b84b17;
-            color: yellow;"></app-register>
+            <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"
+            ><img src="../../assets/images/login.png" alt="" style="width:100px; "/></button>
+            <app-register *ngIf="!loggedIn()" class="register">
+              </app-register>
           </form>
           <div *ngIf="loggedIn()" class="dropdown text-right" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>
@@ -69,7 +69,64 @@
           <div class="arina-logo">
             <a [routerLink]="['/home']" ><img src="../../assets/images/logo.png" alt=""/></a>
           </div>
-          <div class="responsive-menu-wrap"></div>
+          <div class="responsive-menu-wrap  moblilemenu">
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><img src="../../assets/images/menu.png" alt="" style= "width: 51px;
+            margin-top: 1px;
+            /* margin-right: 152px; */
+            margin-left: 428px;"/></a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+            <ul class="navigation" style="background-color: rgba(0,0,0,0.8);
+  
+            text-align: center;
+            color: white;
+            padding: 10px;">
+                <li class="menu"><a [routerLink]="['/home']" routerLinkActive="menu-active">Home</a></li>
+                <li class="menu"><a [routerLink]="['/about']" routerLinkActive="menu-active">About Us</a></li>
+                <li class="menu"  *ngIf="loggedIn()">
+                  <a [routerLink]="['/machineadd']" *ngIf="authService.decodedToken?.unique_name!='admin'" routerLinkActive="menu-active" >Company</a>
+                  <a [routerLink]="['/admin']" *ngIf="authService.decodedToken?.unique_name==='admin'" routerLinkActive="menu-active" >Admin</a>
+                  <!-- <ul class="drop-menu">
+                    <li><a [routerLink]="['/machineadd']" >Add Machine</a></li>
+                  </ul> -->
+                </li>
+                <li class="menu"><a [routerLink]="['/service']" routerLinkActive="menu-active" >Services</a></li>
+                <li class="menu"style="font-weight: bold;margin-top: 6px;">PRODUCT
+                  <ul class="drop-menu">
+                      <li class="menu"><a [routerLink]="['/indo']" routerLinkActive="menu-active" >IndoFork </a></li>
+                      <li class="menu"><a [routerLink]="['/mark']" routerLinkActive="menu-active" >Mark Compressor</a></li>
+                      <li class="menu"><a [routerLink]="['/parkers']" routerLinkActive="menu-active" >Parker</a></li>
+                      <li class="menu"><a [routerLink]="['/airnet']">Airnet </a></li>  </ul>
+              </li>
+                <li class="menu">
+                  <a [routerLink]="['/WhyUs']" routerLinkActive="menu-active" >Why Us?</a>
+                  <!-- <ul class="drop-menu">
+                    <li><a href="indofork.html">Indo Fork</a></li>
+                    <li><a href="mark.html">Mark</a></li>
+                    <li><a href="parker.html">Parker</a></li>
+                  </ul> -->
+                </li>
+  
+                <li class="menu"><a [routerLink]="['/contact']" routerLinkActive="menu-active" >contact us</a></li>
+            
+</ul>
+
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+
+          </div>
         </div>
 
           
