@@ -43,7 +43,7 @@
             />
             <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit"
             ><img src="../../assets/images/login.png" alt="" style="width:100px; "/></button>
-            <app-register *ngIf="!loggedIn()" class="register">
+            <app-register *ngIf="!loggedIn()" >
               </app-register>
           </form>
           <div *ngIf="loggedIn()" class="dropdown text-right" dropdown>
@@ -78,7 +78,7 @@
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><img src="../../assets/images/menu.png" alt="" style= "width: 51px;
             margin-top: 1px;
             /* margin-right: 152px; */
-            margin-left: 428px;"/></a>
+            margin-left: 203px;"/></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
