@@ -31,7 +31,7 @@ export const appRoutes: Routes = [
         { path: 'mark', component: MarkComponent, data: {} },
         { path: 'parkers', component: ParkersComponent, data: {} },
         { path: 'airnet', component: AirnetComponent, data: {} },
-        { path: '**', redirectTo: '' }
+        { path: '**', redirectTo: 'home' }
       ]
     }
   ];
