@@ -37,6 +37,35 @@
                 />Breakdown Service
               </label>
             </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <div class="form-content">
+                  <input
+                    name="mobile"
+                    placeholder="Mobile Number"
+                    class="form-control"
+                    required=""
+                    type="text"
+                    [(ngModel)]="requestModel.mobile"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="form-message">
+                  <textarea
+                    class="field-element form-control"
+                    data-gramm="true"
+                    spellcheck="false"
+                    data-gramm_editor="true"
+                    name="msg"
+                    placeholder="Request Message"
+                    [(ngModel)]="requestModel.requestMessage"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
             <button
               type="button"
               name="submit"

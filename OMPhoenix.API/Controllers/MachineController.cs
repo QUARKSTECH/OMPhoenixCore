@@ -69,7 +69,7 @@ namespace OMPhoenix.API.Controllers
         {
             var userName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.User.FindFirstValue(ClaimTypes.Name));
             var company = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(this.User.FindFirstValue(ClaimTypes.GivenName));
-            var template = $"Hello, Rajat\n\n {userName} from {company} has requested:- ";
+            var template = $"Hello, Rajat \r\n {userName} from {company} has requested:- ";
 
             var toEmailAddress = new EmailAddress(){
                 Name = "OM Phoenix Traders",
@@ -84,7 +84,7 @@ namespace OMPhoenix.API.Controllers
                 ToAddresses = new List<EmailAddress>(){toEmailAddress},
                 FromAddresses = new List<EmailAddress>(){fromEmailAddress},
                 Subject = requestDto.RequestType,
-                Content = template + (requestDto.RequestType == "ServiceRequest" ? requestDto.ServiceCategory : requestDto.PartNumber + " " + requestDto.MachineModel)
+                Content = template + (requestDto.RequestType == "ServiceRequest" ? (requestDto.ServiceCategory + ". Additional details are - Mobile: " + requestDto.Mobile + ", RequestMessage: " + requestDto.RequestMessage) : requestDto.PartNumber + " " + requestDto.MachineModel)
             };
             _emailService.Send(emailMessage);
             return Ok(200);
