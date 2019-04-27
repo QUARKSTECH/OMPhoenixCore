@@ -98,6 +98,10 @@ export class MachineAddComponent implements OnInit {
       } else {
         this.requestModel.serviceCategory = 'Breakdown Service';
       }
+      if (!this.requestModel.mobile || !this.requestModel.requestMessage) {
+        this.alertify.warning('Please fill the mobile number or request message');
+        return false;
+      }
     }
     this.http.post(this.baseurl + 'request/', this.requestModel).subscribe(
       response => {
